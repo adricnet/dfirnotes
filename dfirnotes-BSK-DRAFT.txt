@@ -87,13 +87,14 @@ IPython offers an enhanced Python interpreter terminal with built in editing, sy
 highlighting, and auto-completion features and a sophisticated interactive notebook 
 interface driven by the IPython core and using the same kernel. 
       The IPython system and its notebook format has become so widely used and 
-successful with users of other languages including R and Julia that a new project was 
-launched in 2014 to better support the broader use and community and push the 
+successful with users of other science programming languages including R and Julia that 
+a new project was launched in 2014 to better support the broader use and push the 
 technology further. Announced at PyCon in July 2014 (FIXME) Project Jupyter will take 
 over the infrastructure of IPython and brings native support for kernels in Python 2, 
 Python 3, Julia, and R. As of early 2015, development of IPython 3.0 and Jupyter 
-continues, but many of the new capabilities are already available in some form including 
-the Collaboratory, Google Drive support, and tmpnb (REFME Jupyter github).
+continues, and many of the new capabilities are already available in some form including 
+the multi-user notebook Collaboratory, Google Drive notebook support, and ephemeral 
+notebook server tmpnb (REFME Jupyter github).
 1.5.	DFIR notebooks
       The IPython notebook with its power, flexibility, and transparency is an excellent 
 tool to perform DFIR analysis, collaborate with teams, and report results.  The open 
@@ -182,17 +183,21 @@ the technical and social support for using other scientific and statistical anal
 languages is so strong within the IPython project and community that they have 
 announced and begun an ambitious plan to spin off the notebook components into their 
 own project, Jupyter. (REFME) (Rossant 2014, Perez 2014 Project Jupyter video)
+      IPython notebooks are comprised of meta-data and cells. A single notebook can 
+include cells input as code, Markdown , or  headers, and the  output in text, graphics or 
+other formats.
 2.1.3.	Notebooks Format
-      The IPython software as well as the notebooks are not only free and open source 
-but also cross-platform. Notebooks themselves are actually text encoded serialized 
-objects in the popular JavaScript Object Notation (JSON) format. Although the internal 
-format of the notebook is not guaranteed to be stable between releases (REFME), the 
-JSON format allows for manual inspection and troubleshooting of notebook contents and 
-various useful programmatic manipulations. For example, notebooks are text files and 
-check in easily to version control systems such as Git and Fossil and can be processed 
-into other formats directly if more customization or automation is desired than is 
-provided by the notebook application. (REFME Rossant 2014 p25) In fact robust utilities 
-for some of these transforms are included in IPython in the nbconvert package.
+      The IPython software as well as the notebooks are free and open source, cross-
+platform, and use an open architecture documented in IPython manuals. Notebook files 
+are text encoded serialized objects in the popular JavaScript Object Notation (JSON) 
+format. Although the internal format of the notebook is not guaranteed to be stable 
+between releases (REFME), the JSON format allows for manual inspection and 
+troubleshooting of notebook contents and various useful programmatic manipulations. 
+For example, notebooks files check in easily to version control systems such as Git and 
+Fossil and can be processed into other formats directly if more customization or 
+automation is desired than is provided by the notebook application. (REFME Rossant 
+2014 p25) In fact robust utilities for some of these transforms are included in IPython in 
+the nbconvert package.
 2.2.	Notebook communication and security features
 2.2.1.	Notebook reporting & collaboration features
       The structure of the IPython notebook lends itself not only to ease of use for 
@@ -201,33 +206,33 @@ even presentation. The cells of a notebook are configurable to different modes f
 rich text, or headers. Switch the mode of a cell with the menus or keyboard shortcuts to 
 code, define multiple levels of headings, or to input full Markdown structured text which 
 will display as styled rich text when the cell is executed.
-      To share your progress you can certainly send the IPython notebook to colleagues 
-as a file attachment or check it in to version control. Rather than sharing all of your work 
-you can process out an HTML rendering of your current notebook including input and 
-output cells using the Notebook print preview feature. This can also be done offline with 
-nbconvert. Rendered notebook content can also be shared using the system clipboard and 
-generally pastes nicely into office productivity and messaging applications with 
-formatting intact. 
+      To share progress you can send an IPython notebook to colleagues as a file 
+attachment or check it in to version control. Rather than sharing all of your work by 
+sending the notebook you can process out an HTML rendering of your current notebook 
+including input and output cells using the print preview feature (in the File menu). This 
+conversion can also be done offline with nbconvert. Rendered notebook content can be 
+shared using the system clipboard and generally pastes nicely into office productivity and 
+messaging applications with formatting intact. 
       For presenting your findings the notebook software natively supports slide shows. 
 Cells in IPython 2 and later can be marked as different levels of slide content, or to be 
 skipped over in your presentation. Once slides are selected nbconvert can process out 
-your notebook into a slides-only document in HTML or PDF or just run the slideshow for 
-you in a browser using the Reveal.js framework. (REFME)
+your notebook into a slides-only document in HTML or PDF or run the slideshow live in 
+a browser using the Reveal.js framework. (REFME)
        
       [IMG react slides invoke with nbconvert]
       Hannes Bretschneider, a PhD Student in Computer Science at the University of 
 Toronto, explains how to hide the input cells for notebook slides shows with HTML and 
 CSS in a blog post from November 2013 (Bretschneider 2013) and provides a simple 
 script demonstrating the technique.
-      There are many options for sharing results from your notebooks. The nbconvert 
-utility can use available system document processing tools to process notebooks in batch 
-such as into PDF with pdflatex package. The notebook web UI features a print preview 
-function using pandoc that renders the notebook to a static HTML document. This can be 
-excerpted with copy and paste into productivity applications such as Microsoft Office or 
-messaging clients with full rich text formatting and graphics or printed to paper of PDF in 
-the browser. The charting and visualization libraries available through notebooks can 
-render out graphics files for reuse, such as this graphic from the win5mem memory 
-analysis sample notebook.
+      IPython notebooks offer also options for sharing completed results in notebooks. 
+The nbconvert utility can use available system document processing tools to process 
+notebooks in batch, for example as into portable document format (PDF) files with the 
+pdflatex package. The notebook web UI features a print preview function using pandoc 
+that renders the notebook to a static HTML document. This can be excerpted with copy 
+and paste into productivity applications such as Microsoft Office or messaging clients 
+with full rich text formatting and graphics or printed in the browser. The charting and 
+visualization libraries available through notebooks can render out graphics files for reuse, 
+such as this graphic from the win5mem memory analysis sample notebook.
        
       (FIXME IMG process chart from win5mem)
 2.2.2.	Notebook security features: 
@@ -244,22 +249,23 @@ automatically on load. A notebook can be trusted manually to remove these protec
 the Web UI or on the command line with the trust utility.
       Although it is not recommended to expose the notebook server to hostile networks 
 the notebook server software can be configured for authentication and encrypted 
-connections to reduce risks. A shared login password's hash representation can be set in 
-the configuration file and the notebook server software can use TLS for secure web 
+connections to reduce risks of unauthorized access and intercepted communications. A 
+shared login password's hash representation can be set in the profile via configuration file 
+and the notebook server software can use transport layer security (TLS) for secure web 
 connections if a certificate is provided. A support document explain the process and 
 configuration options at http://ipython.org/ipython-doc/dev/notebook/public_server.html .
       Another security system of the notebook software is the separate notebook 
 viewer. Rather than enabling interactivity and computation, nbviewer is specifically 
-designed to allow for reading notebooks without executing them. 
-      As explained in the FAQ, "The Notebook Viewer uses IPython's nbconvert to 
-export .ipynb files to HTML." (REFME http://nbviewer.ipython.org/faq) A public 
-nbviewer instance hosts many of the example notebooks from IPython developers and 
-security researchers alike. The development version of nbviewer is now part of Juypter 
-and its source is available through GitHub. 
+designed to allow for reading notebooks without executing their content.  As explained in 
+the FAQ, "The Notebook Viewer uses IPython's nbconvert to export .ipynb files to 
+HTML." (REFME http://nbviewer.ipython.org/faq) A public nbviewer instance hosts 
+many of the example notebooks from IPython developers and security researchers alike. 
+The development version of nbviewer is now part of Jupyter and its source is available 
+through their GitHub. 
       The Jupyter project has ambitious goals including multi-user notebooks running 
-in public and private clouds, notebook software as web browser applications, and quick 
-deploy temporary notebooks. There are details and active development on GitHub at 
-https://github.com/jupyter.
+in public and private clouds, notebook software as web browser applications (eg in 
+Google Chrome), and quick deploy temporary notebooks (tmpnb). There are details and 
+active development on GitHub at https://github.com/jupyter.
 2.3.	Notebook Server Platform 
       Although the IPython notebook system is fully cross-platform and well supported 
 on most Windows, Macintosh, and UNIX systems, for consistency of tools and to reduce 
@@ -339,16 +345,20 @@ GitHub project (FIXME).
 of notebook software for DFIR. In this scenario an incident handler is presented with raw 
 evidence and a report of suspicious behaviour, must quickly determine if an incident has 
 occurred, and then report back to their team with recommended action. 
-      FIXME say more about templates?
+      Pre-configured templates support analysts in following process and provide best 
+practices in executable form. For this example the template win5mem used is for 
+Volatility powered triage analysis of a Windows XP memory image. The template 
+provides a case data header, the basic investigation plan and some scripting and analysis 
+code. The template and a completed sample are provided in the dfirnotes GitHub project 
+(REFME).
 2.4.1.	New investigation
       Upon receiving the case the handler opens a new notebook from the template 
-matching the investigation, in this case Windows XP memory triage (win5mem) and fills 
-in the case details and reviews the investigation plan. 
-       
-      (IMG open win5mem TMPL notebook)
+matching the investigation, in this case Windows XP memory triage (win5mem), fills in 
+the case details, and reviews the investigation plan. 
        
       (IMG case meta RTF for win5mem)
-      
+      Once the header cell form is completed in Markdown executing the cell with 
+toolbar buttons or keyboard shortcuts renders it as rich text.
        
       (FIXME IMG caption me)
       The completed investigation plan should detail the questions to answer and 
@@ -358,15 +368,16 @@ scenario we use the methodology from SEC504 Day 5 (REFME SEC504.5 (2014 p42)
       (IMG imv plan from 504.5)
       After completing the investigation information block and saving the new 
 notebook under its correct name, the handler updates the variable names specific to the 
-evidence and procedure: in this case specifying the path to the memory image and 
-selecting (and verifying) a Volatility profile for that image.
+evidence and procedure specifying the path to the memory image and selecting (and 
+verifying) a Volatility profile for that image. Executing this code cell sets the variables 
+we will use for the analysis.
        
       (IMG python code cell variables)
 2.4.2.	Analysis
-      Using the redefined variables the handler executes the code cells with the toolbar 
-or shortcut keys to quickly complete the first stage of the investigation plan by 
-enumerating the process and connections with a batch of volatility queries. The output is 
-then read into Pandas dataframes for charting.
+      Using the redefined variables the handler executes the code cells provided from 
+the template to quickly complete the first stage of the investigation plan by enumerating 
+the process and connections with a batch of Volatility queries. The output is then read 
+into Pandas dataframes to plot graphs.
        
       (IMG process barh, win5mem)
       Based on the occurrence counts and details from the process and connection data 
@@ -381,12 +392,12 @@ recommends action, in this case containment and further investigation.
       (FIXME IMG results, win5mem)
 2.4.4.	Collaborate
       With the investigation plan completed and results in hand the handler can consult 
-with peers by sharing the notebook application session live with conferencing software, 
-present to a group by using *nbconvert* to run a slideshow from the notebook, and pull 
-some or all of the results into a office document or PDF. 
+with peers by sharing the notebook application session live with conferencing software or 
+present to a group by using nbconvert to run a slideshow from the notebook. 
        
       [IMG react slides invoke with nbconvert]
-      
+      React.js loads the slides in a web browser application with navigational aids 
+including a subtle progress bar at the top and optional separate display of speaker notes.
        
       (IMG susp procs slideview)
 2.4.5.	Reporting
@@ -395,17 +406,21 @@ can be saved (ipynb extension). The notebook can be checked into revision contro
 attached to an incident case record for tracking, or just emailed as an attachment. Plots 
 and other generated artifacts can be created as independent image files in standard 
 formats displayed in a notebook. The images are then portable on their own. This 
-technique was used in the sample notebook for the graphs shown in this paper.
+technique was used in the sample notebook for the graphs shown in this paper. , 
+      Once analysis is completed the handler can pull some or all of the results as rich 
+text into an office document via copy and paste and include the generated graphic files in 
+formal reports.
 2.4.6.	Workflow possibilities
       The workflow described is flexible enough to support teams of different sizes and 
 capabilities and offers many points for possible automation through scripting and 
 programming. A sample new case script is available from the dfirnotes GitHub project 
-that includes some simple workflow automation hooks (FIXME). A more sophisticated 
-script could incorporate user input to select templates, set up case metadata, or even start 
-processing of evidence. Interactive forms are possible with use of the IPython notebook 
-widgets and JavaScript. With even more automation notebook applications could be 
-created and started on demand by remote invocation from an investigation management 
-system like Request Tracker Incident Response (RTIR) from Best Practical. 
+that includes some simple workflow automation hooks (FIXME). 
+      More sophisticated scripts could incorporate user input to select templates, set up 
+case meta-data, or even start background processing of evidence. Interactive forms are 
+possible with use of the IPython notebook widgets and JavaScript. With even more 
+automation notebook applications could be created and started on demand by remote 
+invocation from an investigation management system like Request Tracker Incident 
+Response (RTIR) from Best Practical. 
 2.5.	Conclusion
       The notebook technology from IPython is a powerful toolset in its own right and 
 can be easily and effectively customized to enhance DFIR activities by supporting 
@@ -413,15 +428,15 @@ stronger analysis, enabling better reporting, and by powering analyst and respon
 mentoring and education. Notebooks are a flexible interface to DFIR software and are 
 already used by DFIR tool projects like Workbench and Rekall.  (REFME) and many 
 sample analyses are posted by projects and individuals alike. (FIXME A selection of 
-example notebooks are listed in the dfirnotes GitHub project.)
+public examplar notebooks are linked in the dfirnotes GitHub project.)
       The IPython notebook and included data analysis packages bring DFIR data into 
-the standard formats such as Pandas Dataframe and HDFS (FIXME) used by researchers 
-worldwide with science software packages of all kinds. This make DFIR notebooks a 
-bridge that can link process driven DFIR practices with the impressive techniques of the 
-emerging field of data science and take advantage not only of descriptive and inferential 
-statistical analysis but also newer analysis technologies like map-reduce and machine 
-learning to solve the challenges we face from processing larger data sets to defend ever 
-more complex systems.
+the standard formats including Pandas Dataframe and HDFS (FIXME) used by 
+researchers worldwide with science software packages of all kinds. This make DFIR 
+notebooks a bridge that can link process driven DFIR practices with the impressive 
+techniques of the emerging field of data science and take advantage not only of 
+descriptive and inferential statistical analysis but also newer analysis technologies like 
+map-reduce and machine learning to solve the challenges we face from processing ever 
+larger data sets to defend today's complex systems.
 
 
 3.	References
@@ -456,8 +471,8 @@ Shen, Helen. "Interactive notebooks: Sharing the code". Nature.com. Online.
 http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261
 May cut and put in appendix, out of scope
 DFIR notebooks - GCIH Gold
-1
-9
+2
+0
 
 Ben S. Knowles, adric@adric.net		
 
