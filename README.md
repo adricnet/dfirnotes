@@ -22,6 +22,7 @@ Files
 * Paper draft in DOC, txt
 * example notebooks:
  * win5mem : Volatility memory analysis of WinXP: template, completed, slides 
+ * Rekall demo notebook of @tekdefense Dark Comet analysis, with Jupyter slides
 * logos, from openclipart.org originals, Inkscape
 * paper graphs and images, full size & crops
 * python samples : 
