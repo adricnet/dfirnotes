@@ -21,7 +21,7 @@ Files
 
 * Paper draft in DOC, txt
 * example notebooks:
- * win5mem : Volatility memory analysis of WinXP sample, template 
+ * win5mem : Volatility memory analysis of WinXP: template, completed, slides 
 * logos, from openclipart.org originals, Inkscape
 * paper graphs and images, full size & crops
 * python samples : 
