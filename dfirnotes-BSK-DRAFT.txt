@@ -11,7 +11,7 @@ Scientific Notebook Software
 GIAC (GCIH) Gold Certification
 Author: Ben S. Knowles, adric@adric.net
 Advisor: Manuel Humberto Santander Pelaez, Manuel.Santander@epm.com.co
-Draft: February 17th 2015  
+Draft: February 21, 2015  
 
 
 Abstract
@@ -126,12 +126,32 @@ improved analysis and more effective response by using IPython notebook software
 customized to information security and DFIR such as that provided by dfirnotes.org. 
 2.	Notebook Technology for DFIR
 2.1.	IPython Technology
-      [FIXME ipython layout -> notebooks]
-      [FIXME IPython arch blurb: kernel, profiles, from a Roussant book]
-      
-2.1.1.	IPython notebooks
+      IPython features a modular architecture that has made expansion and integration 
+with other projects easier. With IPython 2.0 the kernel supports three user interfaces 
+(UIs): the IPython enhanced text console, a graphical console powered by Trolltech's QT 
+platform, and the web browser notebook interface. All computation takes place in the 
+kernel and communication with the UIs uses a standard messaging framework. In fact 
+multiple UIs can be attached to one kernel and thereby share code and data objects while 
+multiple kernels can be run on one system and be isolated from one another.
+      IPython kernels, UIs, and utilities are configured primarily through the profile 
+directory. A default profile is created on install and additional profiles can be created and 
+invoked with running IPython applications to select a configuration as in this example 
+first invocation of IPython notebook UI.
+       
+      IPython first run creates profile
+      After installation, ipython notebook will start the notebook server and open the 
+default web browser to the home page displaying notebooks. A new notebook can be 
+created and opened with one click and will load in a new browser tab with a new code 
+cell open. The built-in logo header menus and toolbar will display unless configured not 
+to in the profile or a notebook. With IPython 3.0 (Project Jupyter) notebooks can use a 
+selection of different language kernels and there is a kernel selector in the default toolbars 
+top right.
        
       (IMG Jupyter standard notebook header)
+      A user interface tour is offered on first invocation that briefly explains the UI, 
+highlights core notebook functionality, and directs the user to online help for more 
+information.
+2.1.1.	IPython notebooks
       IPython's notebook interface has proven quite popular since its creation in 2011. 
 As explained by Helen Shen in a November 2014 article in the journal Nature, although 
 many other commercial and FOSS packages offer a notebook interface or some of the 
@@ -151,7 +171,6 @@ Computing and Visualization Cookbook was composed in notebooks and then processe
 for electronic and print publication as explained by the author in the Preface (REFME 
 Rossant 2014).
 2.1.2.	Notebook Architecture
-      FIXME ref quickstart tour, books, manuals
       FIXME Code cell features ? Move or cut:
        
       (IMG python code cell, win5mem)
@@ -207,7 +226,8 @@ function using pandoc that renders the notebook to a static HTML document. This 
 excerpted with copy and paste into productivity applications such as Microsoft Office or 
 messaging clients with full rich text formatting and graphics or printed to paper of PDF in 
 the browser. The charting and visualization libraries available through notebooks can 
-render out graphics files for reuse, such as this PNG graphic of a memory analysis:
+render out graphics files for reuse, such as this graphic from the win5mem memory 
+analysis sample notebook.
        
       (FIXME IMG process chart from win5mem)
 2.2.2.	Notebook security features: 
@@ -242,10 +262,10 @@ deploy temporary notebooks. There are details and active development on GitHub a
 https://github.com/jupyter.
 2.3.	Notebook Server Platform 
       Although the IPython notebook system is fully cross-platform and well supported 
-on most Windows, Macintosh, and UNIX systems for consistency of tools and to reduce 
+on most Windows, Macintosh, and UNIX systems, for consistency of tools and to reduce 
 support issues a standard platform is recommended. The SANS Investigative Forensics 
 Toolkit (SIFT) provides a wealth of analysis tools when installed atop a long term 
-support release (LTS) of Ubuntu Linux with the sift-bootstrap package available on 
+support release (LTS) of Ubuntu GNU/Linux with the sift-bootstrap package available on 
 GitHub (REFME). The Ubuntu system package tools and python pip utility can be used 
 to install all of the dependencies and optional tools to make good use of notebook 
 software. SIFT version 3 includes IPython but additional utilities and libraries are needed 
@@ -294,11 +314,15 @@ arguments to the tools and through the IPython profile and configuration files. 
 for settings like the IP address and port to bind the notebook server to, various security 
 and privacy settings, and feature selection (eg disable MathJAX) can be set in the 
 notebook configuration files within a profile. Scripts can be configured to provide 
-additional features in this way, as in this example (FIXME) which logs all IPython 
-commands (not just notebook cell entry) to a separate log file.
+additional features in this way. A file included in the default profile at 
+.ipython/profile_default/startup/README explains how to add scripts that run with the 
+application server startup, such as this example script from (FIXME) which logs all 
+IPython commands (not just notebook cell entry) to a separate log file.
       FIXME customizations, like logging commands:
       .ipython/profile_default/startup/05_log.py (REFME)
-      .ipython/profile_default/startup/README
+      Startup scripts, and all profile modifications, should be used carefully and 
+compatibility with all software checked. The example logging script uses Python 2.7 
+syntax that does not work correctly under Python 3.
       Also available within the profile are file locations for custom CSS and JavaScript. 
 The CSS file is used not only for styling of the notebook web UI, but also notebooks 
 browsed through nbviewer or processed by nbconvert (REFME). Using custom 
@@ -318,8 +342,8 @@ occurred, and then report back to their team with recommended action.
       FIXME say more about templates?
 2.4.1.	New investigation
       Upon receiving the case the handler opens a new notebook from the template 
-matching the investigation, in this case Windows XP memory triage (Win5Mem) and 
-fills in the case details and reviews the investigation plan. 
+matching the investigation, in this case Windows XP memory triage (win5mem) and fills 
+in the case details and reviews the investigation plan. 
        
       (IMG open win5mem TMPL notebook)
        
@@ -354,7 +378,7 @@ the handler examines some processes and connections further and charts that data
 platform the handler identifies suspicious processes and another host implicated in the 
 activity. The handler summarizes the results with charts and brief statements and 
 recommends action, in this case containment and further investigation. 
-      (IMG results, win5mem)
+      (FIXME IMG results, win5mem)
 2.4.4.	Collaborate
       With the investigation plan completed and results in hand the handler can consult 
 with peers by sharing the notebook application session live with conferencing software, 
@@ -367,11 +391,11 @@ some or all of the results into a office document or PDF.
       (IMG susp procs slideview)
 2.4.5.	Reporting
       Once any teammates' contributions are incorporated the completed notebook file 
-saved (ipynb extension) can be checked into revision control, attached to an incident case 
-record for tracking, or just emailed as an attachment. Plots and other generated artifacts 
-can be created as independent image files in standard formats displayed in a notebook. 
-The images are then portable on their own. This technique was used in the sample 
-notebook for the graphs shown in this paper.
+can be saved (ipynb extension). The notebook can be checked into revision control, 
+attached to an incident case record for tracking, or just emailed as an attachment. Plots 
+and other generated artifacts can be created as independent image files in standard 
+formats displayed in a notebook. The images are then portable on their own. This 
+technique was used in the sample notebook for the graphs shown in this paper.
 2.4.6.	Workflow possibilities
       The workflow described is flexible enough to support teams of different sizes and 
 capabilities and offers many points for possible automation through scripting and 
@@ -386,10 +410,10 @@ system like Request Tracker Incident Response (RTIR) from Best Practical.
       The notebook technology from IPython is a powerful toolset in its own right and 
 can be easily and effectively customized to enhance DFIR activities by supporting 
 stronger analysis, enabling better reporting, and by powering analyst and responder 
-mentoring and education. Notebooks are a [excellent and] flexible interface to DFIR tools 
-and are already used by DFIR tool projects like Workbench and Rekall.  (REFME) and 
-many sample analyses are posted by projects and individuals alike. (FIXME A selection 
-of example notebooks are listed in the dfirnotes GitHub project.)
+mentoring and education. Notebooks are a flexible interface to DFIR software and are 
+already used by DFIR tool projects like Workbench and Rekall.  (REFME) and many 
+sample analyses are posted by projects and individuals alike. (FIXME A selection of 
+example notebooks are listed in the dfirnotes GitHub project.)
       The IPython notebook and included data analysis packages bring DFIR data into 
 the standard formats such as Pandas Dataframe and HDFS (FIXME) used by researchers 
 worldwide with science software packages of all kinds. This make DFIR notebooks a 
@@ -432,7 +456,8 @@ Shen, Helen. "Interactive notebooks: Sharing the code". Nature.com. Online.
 http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261
 May cut and put in appendix, out of scope
 DFIR notebooks - GCIH Gold
-2
+1
+9
 
 Ben S. Knowles, adric@adric.net		
 
