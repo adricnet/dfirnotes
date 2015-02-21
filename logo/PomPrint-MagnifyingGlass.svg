@@ -1,0 +1,66 @@
+<svg width="363" height="401" xmlns="http://www.w3.org/2000/svg" xmlns:undefined="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient x1="-0.56704" y1="-0.04297" x2="-0.56704" y2="-0.75591" id="imagebot_39">
+   <stop stop-color="#b3b3b3" offset="0" id="imagebot_51"/>
+   <stop stop-color="#000000" offset="1" id="imagebot_50"/>
+  </linearGradient>
+  <filter color-interpolation-filters="sRGB" id="imagebot_16">
+   <feGaussianBlur  stdDeviation="2.42" id="imagebot_49"/>
+  </filter>
+  <linearGradient x1="0.58288" y1="-0.47123" x2="0.16808" y2="0.97244" id="imagebot_24">
+   <stop stop-color="#4d4d4d" offset="0" id="imagebot_48"/>
+   <stop stop-color="#000000" offset="1" id="imagebot_47"/>
+  </linearGradient>
+  <linearGradient x1="-0.00175" y1="0.17088" x2="1.01068" y2="0.16954" id="imagebot_31">
+   <stop stop-color="#000000" offset="0" id="imagebot_46"/>
+   <stop stop-color="#999999" offset="1" id="imagebot_45"/>
+  </linearGradient>
+  <radialGradient r="74.478" gradientTransform="matrix(-1.1505,-1.1696,1.2798,-1.2589,203.44,775.83)" cx="189.25" cy="236.94" gradientUnits="userSpaceOnUse" xlink:href="#imagebot_39" id="imagebot_20"/>
+  <radialGradient r="99.523" gradientTransform="matrix(1.1166 -.017021 .018173 1.1927 -38.521 -43.959)" cx="290.92" cy="253.84" gradientUnits="userSpaceOnUse" id="imagebot_22">
+   <stop stop-color="#000000" stop-opacity="0.1" offset="0" id="imagebot_44"/>
+   <stop stop-color="#d7e3f4" stop-opacity="0.3" offset="1" id="imagebot_43"/>
+  </radialGradient>
+  <filter color-interpolation-filters="sRGB" id="imagebot_14">
+   <feGaussianBlur  stdDeviation="3.54707" id="imagebot_42"/>
+  </filter>
+  <filter color-interpolation-filters="sRGB" id="imagebot_12">
+   <feGaussianBlur  stdDeviation="1.00914" id="imagebot_41"/>
+  </filter>
+  <clipPath clipPathUnits="userSpaceOnUse" id="imagebot_11">
+   <path fill="url(#imagebot_20)" d="M 361.9 329.28 C 402.271 289.349 402.628 224.02 362.697 183.65 S 257.437 142.922 217.067 182.853 C 176.696 222.784 176.339 288.113 216.27 328.483 C 256.201 368.854 321.53 369.211 361.9 329.28 Z M 357.038 324.365 C 319.377 361.616 258.433 361.283 221.178 323.622 C 183.927 285.961 184.26 225.017 221.921 187.762 C 259.582 150.51 320.526 150.844 357.781 188.505 C 395.032 226.166 394.699 287.11 357.038 324.365 L 357.038 324.365 Z" id="imagebot_40"/>
+  </clipPath>
+  <radialGradient r="74.478" gradientTransform="matrix(-1.1505,-1.1696,1.2798,-1.2589,203.7,775.83)" cx="189.25" cy="236.94" gradientUnits="userSpaceOnUse" xlink:href="#imagebot_39" id="imagebot_8"/>
+  <filter color-interpolation-filters="sRGB" id="imagebot_9">
+   <feGaussianBlur  stdDeviation="1.00919" id="imagebot_38"/>
+  </filter>
+  <filter color-interpolation-filters="sRGB" id="imagebot_28">
+   <feGaussianBlur  stdDeviation="4.07189" id="imagebot_35"/>
+  </filter>
+  <filter x="-0.1079" y="-0.03495" color-interpolation-filters="sRGB" width="1.2158" height="1.0699" id="imagebot_18">
+   <feGaussianBlur  stdDeviation="2.41994" id="imagebot_34"/>
+  </filter>
+  <filter color-interpolation-filters="sRGB" id="imagebot_6">
+   <feGaussianBlur  stdDeviation="0.73236" id="imagebot_33"/>
+  </filter>
+  <clipPath clipPathUnits="userSpaceOnUse" id="imagebot_5">
+   <path fill="url(#imagebot_31)" d="M 268.56 354.84 L 267.904 478.03 C 267.868 484.657 273.181 490.057 279.81 490.092 L 295.372 490.186 C 302 490.222 307.399 484.876 307.434 478.248 L 308.121 354.838 L 268.559 354.838 L 268.56 354.84 Z" id="imagebot_32"/>
+  </clipPath>
+  <linearGradient x1="-0.00175" y1="0.17088" x2="1.01068" xlink:href="#imagebot_31" y2="0.16954" id="imagebot_26"/>
+ </defs>
+ <g label="Layer 1" id="imagebot_3">
+  <rect transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" fill="#ffffff" x="106.07" y="127.57" width="362.64" height="400.53" id="imagebot_29"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" opacity="0.625" filter="url(#imagebot_28)" fill="#000000" d="M 271.35 156.66 C 244.979 156.516 218.566 166.413 198.381 186.379 C 158.01 226.31 157.637 291.629 197.568 331.999 C 212.365 346.959 230.671 356.417 249.88 360.374 L 249.224 481.564 C 249.188 488.191 254.501 493.591 261.13 493.626 L 276.692 493.72 C 283.321 493.756 288.719 488.41 288.754 481.782 L 289.442 360.842 C 309.116 357.246 327.931 347.905 343.192 332.811 C 383.563 292.88 383.936 227.561 344.004 187.191 C 324.038 167.006 297.718 156.804 271.348 156.66 L 271.35 156.66 Z M 271.319 163.566 C 295.919 163.701 320.475 173.204 339.1 192.035 C 376.351 229.696 376.011 290.659 338.35 327.915 C 300.689 365.166 239.726 364.826 202.47 327.165 C 165.219 289.504 165.559 228.541 203.22 191.285 C 222.051 172.659 246.714 163.432 271.314 163.566 Z" id="imagebot_27"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" fill="url(#imagebot_26)" d="M 268.56 354.84 L 267.91 478.03 C 267.87 484.66 273.18 490.06 279.81 490.09 L 295.38 490.19 C 302 490.22 307.4 484.88 307.44 478.25 L 308.12 354.84 L 268.56 354.84 Z" id="imagebot_25"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" fill="url(#imagebot_24)" d="M 307.29 480.16 L 268.49 479.55 L 268.067 480.1 C 269.017 485.746 273.89 490.076 279.812 490.108 L 295.39 490.171 C 301.375 490.204 306.351 485.883 307.289 480.16 L 307.29 480.16 Z" id="imagebot_23"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" fill="url(#imagebot_22)" d="M 221.17 184.2 C 260.248 145.547 323.26 145.892 361.91 184.97 C 400.563 224.048 400.218 287.06 361.14 325.71 C 322.07 364.37 259.05 364.02 220.4 324.94 C 181.75 285.87 182.09 222.85 221.17 184.2 L 221.17 184.2 Z" id="imagebot_21"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" fill="url(#imagebot_20)" d="M 361.9 329.28 C 402.271 289.349 402.628 224.02 362.697 183.65 S 257.437 142.922 217.067 182.853 C 176.696 222.784 176.339 288.113 216.27 328.483 C 256.201 368.854 321.53 369.211 361.9 329.28 Z M 357.038 324.365 C 319.377 361.616 258.433 361.283 221.178 323.622 C 183.927 285.961 184.26 225.017 221.921 187.762 C 259.582 150.51 320.526 150.844 357.781 188.505 C 395.032 226.166 394.699 287.11 357.038 324.365 L 357.038 324.365 Z" id="imagebot_19"/>
+  <path label="Layer 1" filter="url(#imagebot_18)" fill="#333333" d="M 158.66 252.47 C 157.526 258.362 156.941 264.439 156.941 270.658 C 156.941 323.63 200.031 366.72 253.003 366.72 C 264.1 366.72 274.766 364.822 284.691 361.345 C 277.004 363.18 268.973 364.158 260.722 364.158 C 204.113 364.158 158.222 318.414 158.222 261.997 C 158.222 258.78 158.368 255.608 158.66 252.466 L 158.66 252.47 Z" transform="matrix(-0.70323 -0.71096 0.71096 -0.70323 168.9 498.7)" id="imagebot_17"/>
+  <path label="Layer 1" opacity="0.5" filter="url(#imagebot_16)" fill="#999999" d="M 158.66 252.47 C 157.526 258.362 156.941 264.439 156.941 270.658 C 156.941 323.63 200.031 366.72 253.003 366.72 C 264.1 366.72 274.766 364.822 284.691 361.345 C 277.004 363.18 268.973 364.158 260.722 364.158 C 204.113 364.158 158.222 318.414 158.222 261.997 C 158.222 258.78 158.368 255.608 158.66 252.466 L 158.66 252.47 Z" transform="matrix(0.70323 0.71096 -0.71096 0.70323 197.24 -242.93)" id="imagebot_15"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" opacity="0.1" filter="url(#imagebot_14)" fill="#cccccc" d="M 236.68 208.28 C 223.719 221.137 215.68 238.925 215.68 258.624 C 215.68 297.816 247.457 329.593 286.649 329.593 C 308.838 329.593 328.636 319.417 341.649 303.468 C 328.825 316.182 311.166 324.03 291.68 324.03 C 252.488 324.03 220.711 292.284 220.711 253.092 C 220.711 236.097 226.717 220.498 236.68 208.28 Z" id="imagebot_13"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" filter="url(#imagebot_12)" fill="#999999" d="M 287.57 153.14 C 270.741 153.448 253.99 157.863 238.914 166.359 C 232.969 170.175 227.321 174.665 222.102 179.828 C 181.731 219.759 181.389 285.078 221.321 325.448 C 254.653 359.147 305.665 364.952 345.101 342.729 C 351.046 338.913 356.694 334.423 361.913 329.26 C 402.284 289.329 402.626 224.01 362.694 183.64 C 342.104 162.824 314.761 152.642 287.569 153.14 L 287.57 153.14 Z M 292.758 157.015 C 318.124 156.55 343.613 166.065 362.819 185.484 C 400.07 223.145 399.762 284.076 362.101 321.324 C 355.823 327.534 348.893 332.702 341.539 336.824 C 304.172 360.924 253.68 356.447 221.199 323.605 C 183.948 285.944 184.257 225.013 221.918 187.765 C 228.196 181.555 235.126 176.387 242.48 172.265 C 257.751 162.415 275.228 157.336 292.76 157.015 Z" clip-path="url(#imagebot_11)" id="imagebot_10"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" filter="url(#imagebot_9)" fill="url(#imagebot_8)" d="M 287.82 155.16 C 247.88 155.447 209.796 181.843 195.7 219.162 C 183.455 250.616 187.762 288.487 208.133 315.566 C 227.797 342.693 261.524 359.113 295.263 356.857 C 327.011 355.143 357.444 337.857 374.446 311.097 C 393.449 281.925 396.169 242.41 380.227 211.222 C 366.1 182.651 337.804 161.184 305.982 156.486 C 299.986 155.489 293.9 155.029 287.821 155.159 L 287.82 155.16 Z M 289.601 158.035 C 330.762 157.322 370.349 185.716 382.764 224.919 C 394.056 258.383 385.776 297.847 361.23 323.31 C 337.817 348.342 300.62 359.857 267.148 351.528 C 234.328 343.868 206.206 318.415 196.351 286.066 C 186.079 254.268 193.119 217.154 215.352 192.08 C 233.787 170.859 261.287 157.694 289.601 158.034 Z" id="imagebot_7"/>
+  <path transform="matrix(1 0 0 1 -106.07 -127.57)" label="Layer 1" filter="url(#imagebot_6)" fill="#1a1a1a" clip-path="url(#imagebot_5)" d="M 268.7 356.37 L 308.601 356.875 C 294.715 358.447 278.756 357.112 268.195 374.553 L 268.7 356.37 Z" id="imagebot_4"/>
+  <title>Layer 1</title>
+ </g>
+ <metadata id="imagebot_2">image/svg+xmlOpenclipart</metadata>
+</svg>

@@ -1,0 +1,444 @@
+
+
+
+
+
+
+
+
+DFIR Analysis and Reporting Improvements with 
+Scientific Notebook Software
+GIAC (GCIH) Gold Certification
+Author: Ben S. Knowles, adric@adric.net
+Advisor: Manuel Humberto Santander Pelaez, Manuel.Santander@epm.com.co
+Draft: February 17th 2015  
+
+
+Abstract
+Use free and open source scientific notebook software to perform analysis and 
+record results simultaneously in a open, flexible, portable format for ease of sharing 
+and reporting.  Fully worked samples can improve analyst and responder mentoring 
+and education. Use of notebook templates can encourage good practices, uphold 
+standards, and improve investigative rigor for better DFIR science and better 
+incident response. Detail some configuration options and server platform notes for 
+SIFT3. Propose workflow and methodology for how DFIR process and techniques 
+are integrated into the notebooks and server environment and walk through a 
+sample investigation in a notebook. 
+
+
+1.	Introduction
+1.1.	Digital Forensics
+      Digital forensics is defined in the US National Institute of Standards and 
+Technology (NIST) Special Publication 800-65 Guide to Integrating Forensic 
+Techniques into Incident Response as "the application of science to the identification, 
+collection, examination, and analysis of data while preserving the integrity of the 
+information and maintaining a strict chain of custody for the data." (NIST SP800-65 p 15 
+REFME)
+      In the introductory chapter of File System Forensic Analysis Brian Carrier 
+explains his use of some key terms in a section titled "Digital Investigations and 
+Evidence". He defines digital investigations and digital evidence in relation to computer 
+investigation techniques and forensics science and distinguishes use of these techniques 
+for forensics purposes specifically as digital forensics investigations (DFI) to distinguish 
+them from other more general digital investigations and better align them with related 
+fields of law-related forensic techniques such as physical crime scene investigations and 
+criminalistics. Carrier explains, "A digital forensics investigation is a process that uses 
+science and technology to analyze digital objects and that develops and tests theories, 
+which can be entered into a court of law, to answer questions about events that occurred." 
+(REFME Carrier)
+1.2.	Incident Response
+      In The SANS Institute Hacker Tools, Techniques, Exploits and Incident Handling 
+course (SEC504) authors Ed Skoudis and John Strand define incident handling as "an 
+action plan for responding to *misuse of information systems* (SEC504.1 FIXME 
+REFME). 
+      Incident response, then, is effectively applying those plans in response to an 
+incident to reduce or remove incident effects on protected systems and organizations. 
+Having prepared plans and using them well is vital to effective response. Not having or 
+not using incident response plans is cited as the number one reason for ineffective 
+response in SEC504. (FIXME SINS)  Another common failure is not taking good notes 
+in an incident. This not only hampers effective reporting and communication within the 
+team and to stakeholders, but may also interfere with the reproducibility of key results.
+      Incident response decisions, and therefore the success of the entire process, rely 
+on effective analysis and communication. Whether implied in the major phases of the 
+standard Plan, Identify, Contain, Eradicate, Recover, Learn (PICERL) process or 
+explicitly identified in a more complex process like that of DOD 6510 incident response 
+pivots on analysis, its strength, and how well results are communicated to stakeholders. 
+(REFME PICERL) (REFME 6510 CM process)
+1.3.	DF in IR
+      Security professionals and educators who make use of digital forensics techniques 
+in incident response have coined the acronym "DFIR" for their specific application of 
+using digital forensic science with incident response and it is common defined as "digital 
+forensics, incident response". Another expansion of the acronym DFIR using Carrier's 
+definition could be: "DFI in IR", using the tools and techniques developed for digital 
+forensics science directly in incident response.
+1.4.	IPython science notebooks
+      The global scientific community uses a variety of software tools to aid research 
+and analysis and many are available as free or open source software (FOSS) for free use, 
+modification, and redistribution without license cost. FOSS tools are of particular interest 
+in science because of the inherent transparency of source availability. FOSS tools are also 
+often easier to customize and modify and the absence of software license fees removes 
+many barriers to adoption that have slowed the spread of excellent commercial tools in 
+the same fields. FOSS tools with a large community can develop very rapidly, as is the 
+case with the Linux and FreeBSD operating systems (FIXME, better examples).
+      In fact many popular scientific tools as well as an impressive selection of DFIR 
+tools are written in the open source Python language including Volatility, Rekall, 
+plaso^(SP). The IPython project started as a set of tools to use python and other 
+languages for scientific computing, mathematics, and analysis (REFME IPython). 
+IPython offers an enhanced Python interpreter terminal with built in editing, syntax 
+highlighting, and auto-completion features and a sophisticated interactive notebook 
+interface driven by the IPython core and using the same kernel. 
+      The IPython system and its notebook format has become so widely used and 
+successful with users of other languages including R and Julia that a new project was 
+launched in 2014 to better support the broader use and community and push the 
+technology further. Announced at PyCon in July 2014 (FIXME) Project Jupyter will take 
+over the infrastructure of IPython and brings native support for kernels in Python 2, 
+Python 3, Julia, and R. As of early 2015, development of IPython 3.0 and Jupyter 
+continues, but many of the new capabilities are already available in some form including 
+the Collaboratory, Google Drive support, and tmpnb (REFME Jupyter github).
+1.5.	DFIR notebooks
+      The IPython notebook with its power, flexibility, and transparency is an excellent 
+tool to perform DFIR analysis, collaborate with teams, and report results.  The open 
+source IPython application stack and notebook format allow leaders as well as 
+investigators to understand and verify the machinery of the analysis workflow as well as 
+any specific result. IPython notebooks smoothly interface not just with Python software 
+but can also call out to other languages or use system commands allowing easy 
+integration of any tool with a command line interface, the ability to read and write files, 
+or network access. 
+      Standard notebooks and supporting workflows can improve consistency of 
+analysis amongst teams and aid reproducibility of results. Templates can encourage 
+analysts to follow processes completely and consistent formatting of case tracking 
+information and meta-data aid record keeping and can smooth handoffs between teams or 
+shifts. Notebooks with good supporting workflow are self-documenting and the analysis 
+and results in a notebook are inherently reproducible by loading the notebook onto 
+another system with access to the same evidence and re-running cells or the entire 
+notebook.
+      IPython notebooks offer many features to enhance sharing your progress and 
+reporting results whether formally or informally with documents or even slide show 
+presentations. Notebook files can be shared directly or used for reporting and 
+presentations using IPython features, optional libraries, and common office productivity 
+software. 
+      Notebooks features also support on-the-job training, mentoring, and formal 
+education allowing analysts and responders to share best practices as blank templates as 
+well as fully or partially worked samples. Current notebook software supports simple 
+"pair analysis" with dual monitor or online collaboration systems and future versions of 
+the software already in development offer multi-user capabilities for live collaboration.
+      Analysts, responders, and their leaders can use these FOSS science tools for 
+improved analysis and more effective response by using IPython notebook software 
+customized to information security and DFIR such as that provided by dfirnotes.org. 
+2.	Notebook Technology for DFIR
+2.1.	IPython Technology
+      [FIXME ipython layout -> notebooks]
+      [FIXME IPython arch blurb: kernel, profiles, from a Roussant book]
+      
+2.1.1.	IPython notebooks
+       
+      (IMG Jupyter standard notebook header)
+      IPython's notebook interface has proven quite popular since its creation in 2011. 
+As explained by Helen Shen in a November 2014 article in the journal Nature, although 
+many other commercial and FOSS packages offer a notebook interface or some of the 
+same features, IPython is far more widely adopted. Shen quotes Ana Nelson, creator of 
+Dexy (another scientific computing package), "IPython notebook has become one of the 
+most widely adopted programs of its kind". Shen credits this in her article to it being free 
+and open source (FOSS) and to the Python language scientific community and its annual 
+conference SciPy.
+      IPython notebooks have become increasingly popular with researchers and 
+developers in just a few years. Many presentations and papers at conferences (not just at 
+SciPy) use IPython notebooks (REFME) and some science weblog sites are published 
+using notebooks including Damian Avila's site http://www.damian.oquanta.info which 
+has many useful tips for using and presenting with notebooks (REFME). 
+      More ambitiously some teams are using notebooks completely for their 
+publications. In fact the newest IPython book by Cyrille Rossant IPython Interactive 
+Computing and Visualization Cookbook was composed in notebooks and then processed 
+for electronic and print publication as explained by the author in the Preface (REFME 
+Rossant 2014).
+2.1.2.	Notebook Architecture
+      FIXME ref quickstart tour, books, manuals
+      FIXME Code cell features ? Move or cut:
+       
+      (IMG python code cell, win5mem)
+      IPython is written in Python but with versions 2 and 3 has included more support 
+for using other languages. Notebooks have always supported use of essentially any 
+accessible tool though shebang, line, and cell magics, and IPython 3.x can actually run 
+kernels not just in Python (2 or 3) but also in other languages such as R and Julia. In fact, 
+the technical and social support for using other scientific and statistical analysis 
+languages is so strong within the IPython project and community that they have 
+announced and begun an ambitious plan to spin off the notebook components into their 
+own project, Jupyter. (REFME) (Rossant 2014, Perez 2014 Project Jupyter video)
+2.1.3.	Notebooks Format
+      The IPython software as well as the notebooks are not only free and open source 
+but also cross-platform. Notebooks themselves are actually text encoded serialized 
+objects in the popular JavaScript Object Notation (JSON) format. Although the internal 
+format of the notebook is not guaranteed to be stable between releases (REFME), the 
+JSON format allows for manual inspection and troubleshooting of notebook contents and 
+various useful programmatic manipulations. For example, notebooks are text files and 
+check in easily to version control systems such as Git and Fossil and can be processed 
+into other formats directly if more customization or automation is desired than is 
+provided by the notebook application. (REFME Rossant 2014 p25) In fact robust utilities 
+for some of these transforms are included in IPython in the nbconvert package.
+2.2.	Notebook communication and security features
+2.2.1.	Notebook reporting & collaboration features
+      The structure of the IPython notebook lends itself not only to ease of use for 
+programming and analysis but includes robust support for documentation, reports, and 
+even presentation. The cells of a notebook are configurable to different modes for code, 
+rich text, or headers. Switch the mode of a cell with the menus or keyboard shortcuts to 
+code, define multiple levels of headings, or to input full Markdown structured text which 
+will display as styled rich text when the cell is executed.
+      To share your progress you can certainly send the IPython notebook to colleagues 
+as a file attachment or check it in to version control. Rather than sharing all of your work 
+you can process out an HTML rendering of your current notebook including input and 
+output cells using the Notebook print preview feature. This can also be done offline with 
+nbconvert. Rendered notebook content can also be shared using the system clipboard and 
+generally pastes nicely into office productivity and messaging applications with 
+formatting intact. 
+      For presenting your findings the notebook software natively supports slide shows. 
+Cells in IPython 2 and later can be marked as different levels of slide content, or to be 
+skipped over in your presentation. Once slides are selected nbconvert can process out 
+your notebook into a slides-only document in HTML or PDF or just run the slideshow for 
+you in a browser using the Reveal.js framework. (REFME)
+       
+      [IMG react slides invoke with nbconvert]
+      Hannes Bretschneider, a PhD Student in Computer Science at the University of 
+Toronto, explains how to hide the input cells for notebook slides shows with HTML and 
+CSS in a blog post from November 2013 (Bretschneider 2013) and provides a simple 
+script demonstrating the technique.
+      There are many options for sharing results from your notebooks. The nbconvert 
+utility can use available system document processing tools to process notebooks in batch 
+such as into PDF with pdflatex package. The notebook web UI features a print preview 
+function using pandoc that renders the notebook to a static HTML document. This can be 
+excerpted with copy and paste into productivity applications such as Microsoft Office or 
+messaging clients with full rich text formatting and graphics or printed to paper of PDF in 
+the browser. The charting and visualization libraries available through notebooks can 
+render out graphics files for reuse, such as this PNG graphic of a memory analysis:
+       
+      (FIXME IMG process chart from win5mem)
+2.2.2.	Notebook security features: 
+      The notebook software system has several security features starting inside the 
+notebook files themselves. Since IPython 2.0, the notebook file metadata contain a hash 
+signed by a private key specific to the individual installation. The private key is kept in 
+the user's IPython profile. As detailed by the online documentation at 
+http://ipython.org/ipython-doc/dev/notebook/security.html this allows the notebook 
+software to recognize notebooks that were created on that instance and in the security 
+model these are regarded as trusted (REFME). Untrusted notebooks have restricted 
+execution of cells to prevent rogue scripts and malicious code from running without 
+permission. For example, an untrusted (foreign) notebook's cells will not execute 
+automatically on load. A notebook can be trusted manually to remove these protections in 
+the Web UI or on the command line with the trust utility.
+      Although it is not recommended to expose the notebook server to hostile networks 
+the notebook server software can be configured for authentication and encrypted 
+connections to reduce risks. A shared login password's hash representation can be set in 
+the configuration file and the notebook server software can use TLS for secure web 
+connections if a certificate is provided. A support document explain the process and 
+configuration options at http://ipython.org/ipython-doc/dev/notebook/public_server.html .
+      Another security system of the notebook software is the separate notebook 
+viewer. Rather than enabling interactivity and computation, nbviewer is specifically 
+designed to allow for reading notebooks without executing them. 
+      As explained in the FAQ, "The Notebook Viewer uses IPython's nbconvert to 
+export .ipynb files to HTML." (REFME http://nbviewer.ipython.org/faq) A public 
+nbviewer instance hosts many of the example notebooks from IPython developers and 
+security researchers alike. The development version of nbviewer is now part of Juypter 
+and its source is available through GitHub. 
+      The Jupyter project has ambitious goals including multi-user notebooks running 
+in public and private clouds, notebook software as web browser applications, and quick 
+deploy temporary notebooks. There are details and active development on GitHub at 
+https://github.com/jupyter.
+2.3.	Notebook Server Platform 
+      Although the IPython notebook system is fully cross-platform and well supported 
+on most Windows, Macintosh, and UNIX systems for consistency of tools and to reduce 
+support issues a standard platform is recommended. The SANS Investigative Forensics 
+Toolkit (SIFT) provides a wealth of analysis tools when installed atop a long term 
+support release (LTS) of Ubuntu Linux with the sift-bootstrap package available on 
+GitHub (REFME). The Ubuntu system package tools and python pip utility can be used 
+to install all of the dependencies and optional tools to make good use of notebook 
+software. SIFT version 3 includes IPython but additional utilities and libraries are needed 
+for full notebook server use and some nbconvert functions. A sample install script for the 
+dependencies is provided in the dfirNotes GitHub project.(FIXME)
+2.3.1.	Offline
+      One peculiarity of designing systems for incident response or digital forensics is 
+that they must usually operate in restricted networks without Internet access or sometimes 
+entirely offline. Although the Linux, IPython, SIFT software are entirely available online 
+it is not recommended for an analysis system in use to (still) have Internet access. This is 
+to reduce risk of contaminated analysis and lower the likelihood of malware propagation 
+or attacker movement through analysis systems. Some simple preparation and additional 
+downloads can smooth this experience for the analyst and should be done in combination 
+with system hardening to prepare a notebook powered analysis server for response 
+activities.
+      The IPython notebook software uses the MathJAX JavaScript library to render 
+equations in notebooks and by default expects to find the latest version of the library on a 
+public network site. If this feature is not in use it can be disabled in the configuration or 
+execution of the notebook software or if desirable the library can be downloaded for 
+offline use easily (REFME). 
+      Some analysis packages use profiles, such as the memory image profiles used by 
+Volatility and Rekall. It is recommended to download the profiles needed for an 
+investigation ahead of time and like all software these may need to be updated or 
+replaced as upstream changes. 
+      The live slideshow feature of IPython notebooks uses a JavaScript library React.js 
+and looks for it online by default when running slideshows out of nbconvert. The React.js 
+project provides instructions online for downloading the library and configuring for 
+offline use as these are detailed for SIFT3 in an appendix (FIXME).
+      All of the tools tested for this project were easily configured for offline use.
+2.3.2.	Hardening
+      Response and analysis systems should be hardened against the potential threats 
+modeled in incident response planning and in compliance with any organizational policy. 
+Many of the analysis packages have network services (beyond the notebook itself) and all 
+should be reviewed. Follow best practices, review all services for need, and protect them 
+with firewalls, tcp wrappers, and cryptography. Are you printing from your analysis 
+server, sharing files, streaming media? Consider uninstalling any packages not used in 
+your environment or standard work process to reduce the attack surface of your analysis 
+servers. Finally, strike a balance between the offline or restricted networking 
+requirements of these systems and keeping them patched for any security problems. 
+Network services, file and protocol parsers, and systems dealing with malware or attacker 
+artifacts are all at heightened risk for exploitation as detailed in SEC504.4 (REFME) and 
+these analysis systems are all of those things at once.
+2.3.3.	IPython profile
+      The IPython notebook software is user configurable through the invocation 
+arguments to the tools and through the IPython profile and configuration files. Defaults 
+for settings like the IP address and port to bind the notebook server to, various security 
+and privacy settings, and feature selection (eg disable MathJAX) can be set in the 
+notebook configuration files within a profile. Scripts can be configured to provide 
+additional features in this way, as in this example (FIXME) which logs all IPython 
+commands (not just notebook cell entry) to a separate log file.
+      FIXME customizations, like logging commands:
+      .ipython/profile_default/startup/05_log.py (REFME)
+      .ipython/profile_default/startup/README
+      Also available within the profile are file locations for custom CSS and JavaScript. 
+The CSS file is used not only for styling of the notebook web UI, but also notebooks 
+browsed through nbviewer or processed by nbconvert (REFME). Using custom 
+JavaScript in the profile enables injection and manipulation of cell content, notebook 
+metadata, and reconfiguring of the notebook user interface.(REFME) (FIXME example). 
+These JavaScript APIs are available live in a notebook cells, but are limited in scope. 
+Scripts configured in the profile will execute for each notebook opened or created and 
+can be quite powerful.
+      The dfirNotes sample install script creates an IPython profile for dfirnotes and 
+configures some useful settings as well as a custom theme there. It's available in the 
+GitHub project (FIXME). 
+2.4.	Notebook powered DFIR Workflow
+      An example workflow for memory evidence triage will illustrate the advantages 
+of notebook software for DFIR. In this scenario an incident handler is presented with raw 
+evidence and a report of suspicious behaviour, must quickly determine if an incident has 
+occurred, and then report back to their team with recommended action. 
+      FIXME say more about templates?
+2.4.1.	New investigation
+      Upon receiving the case the handler opens a new notebook from the template 
+matching the investigation, in this case Windows XP memory triage (Win5Mem) and 
+fills in the case details and reviews the investigation plan. 
+       
+      (IMG open win5mem TMPL notebook)
+       
+      (IMG case meta RTF for win5mem)
+      
+       
+      (FIXME IMG caption me)
+      The completed investigation plan should detail the questions to answer and 
+contain any hypotheses to disprove for the case. For memory analysis in the triage 
+scenario we use the methodology from SEC504 Day 5 (REFME SEC504.5 (2014 p42)
+       
+      (IMG imv plan from 504.5)
+      After completing the investigation information block and saving the new 
+notebook under its correct name, the handler updates the variable names specific to the 
+evidence and procedure: in this case specifying the path to the memory image and 
+selecting (and verifying) a Volatility profile for that image.
+       
+      (IMG python code cell variables)
+2.4.2.	Analysis
+      Using the redefined variables the handler executes the code cells with the toolbar 
+or shortcut keys to quickly complete the first stage of the investigation plan by 
+enumerating the process and connections with a batch of volatility queries. The output is 
+then read into Pandas dataframes for charting.
+       
+      (IMG process barh, win5mem)
+      Based on the occurrence counts and details from the process and connection data 
+the handler examines some processes and connections further and charts that data as well.
+       
+      (IMG IE ps connections, win5mem)
+2.4.3.	Recommend action
+      From the process and connection data and an understanding of the Windows 
+platform the handler identifies suspicious processes and another host implicated in the 
+activity. The handler summarizes the results with charts and brief statements and 
+recommends action, in this case containment and further investigation. 
+      (IMG results, win5mem)
+2.4.4.	Collaborate
+      With the investigation plan completed and results in hand the handler can consult 
+with peers by sharing the notebook application session live with conferencing software, 
+present to a group by using *nbconvert* to run a slideshow from the notebook, and pull 
+some or all of the results into a office document or PDF. 
+       
+      [IMG react slides invoke with nbconvert]
+      
+       
+      (IMG susp procs slideview)
+2.4.5.	Reporting
+      Once any teammates' contributions are incorporated the completed notebook file 
+saved (ipynb extension) can be checked into revision control, attached to an incident case 
+record for tracking, or just emailed as an attachment. Plots and other generated artifacts 
+can be created as independent image files in standard formats displayed in a notebook. 
+The images are then portable on their own. This technique was used in the sample 
+notebook for the graphs shown in this paper.
+2.4.6.	Workflow possibilities
+      The workflow described is flexible enough to support teams of different sizes and 
+capabilities and offers many points for possible automation through scripting and 
+programming. A sample new case script is available from the dfirnotes GitHub project 
+that includes some simple workflow automation hooks (FIXME). A more sophisticated 
+script could incorporate user input to select templates, set up case metadata, or even start 
+processing of evidence. Interactive forms are possible with use of the IPython notebook 
+widgets and JavaScript. With even more automation notebook applications could be 
+created and started on demand by remote invocation from an investigation management 
+system like Request Tracker Incident Response (RTIR) from Best Practical. 
+2.5.	Conclusion
+      The notebook technology from IPython is a powerful toolset in its own right and 
+can be easily and effectively customized to enhance DFIR activities by supporting 
+stronger analysis, enabling better reporting, and by powering analyst and responder 
+mentoring and education. Notebooks are a [excellent and] flexible interface to DFIR tools 
+and are already used by DFIR tool projects like Workbench and Rekall.  (REFME) and 
+many sample analyses are posted by projects and individuals alike. (FIXME A selection 
+of example notebooks are listed in the dfirnotes GitHub project.)
+      The IPython notebook and included data analysis packages bring DFIR data into 
+the standard formats such as Pandas Dataframe and HDFS (FIXME) used by researchers 
+worldwide with science software packages of all kinds. This make DFIR notebooks a 
+bridge that can link process driven DFIR practices with the impressive techniques of the 
+emerging field of data science and take advantage not only of descriptive and inferential 
+statistical analysis but also newer analysis technologies like map-reduce and machine 
+learning to solve the challenges we face from processing larger data sets to defend ever 
+more complex systems.
+
+
+3.	References
+Carrier, Brian. "File System Forensic Analysis*. Addison-Wesley: Upper Saddle River, 
+NJ. (2005).
+
+DFIRNotes Project. https://github.com/adricnet/dfirnotes/.
+
+NIST Special Publication 800-65 Guide to Integrating Forensic Techniques into Incident 
+Response. Retrieved from http://csrc.nist.gov/publications/nistpubs/800-
+86/SP800-86.pdf  on Feb 17, 2015. 
+
+Rossant, Cyrille. Learning IPython for Interactive Computing and Data Visualization. 
+Packt Press (2013).
+
+Rossant, Cyrille. IPython Interactive Computing and Visualization Cookbook. Packt 
+Press (2014).
+
+Skoudis, Ed, Strand, John, et al.. Hacker Techniques, Exploits, and Incident Handling 
+(SEC504). SANS Institute (2014).
+
+IPython Project. "Notebook security features". Retrieved from http://ipython.org/ipython-
+doc/dev/notebook/security.html Feb 17, 2015
+
+Jupyter Project. https://github.com/jupyter
+
+Perez, Fernando. "Project Jupyter". Presentation. Video at 
+https://www.youtube.com/watch?v=JDrhn0-r9Eg&t=4m10s. Slides retrieved 
+from https://speakerdeck.com/fperez/project-jupyter, Jan 17, 2015.
+
+Shen, Helen. "Interactive notebooks: Sharing the code". Nature.com. Online. 
+http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261
+May cut and put in appendix, out of scope
+DFIR notebooks - GCIH Gold
+2
+
+Ben S. Knowles, adric@adric.net		
+
+[Draft Feb 2015]
+
+
+
+
+
