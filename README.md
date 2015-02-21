@@ -19,6 +19,6 @@ sample investigation in a notebook.
 License
 --------
 
-Original works including paper, scripts, sample notebooks copyleft 2015 @adricnet and available for distribution and reuse under Apache license.
+Original works including paper, scripts, sample notebooks copyleft 2015 @adricnet and available for distribution and reuse under MIT license.
 
 Products including @ipython [GitHub](https://github.com/ipython/ipython), @sans-dfir [SIFT3](https://github.com/sans-dfir/sift-bootstrap) available under their own licenses.
