@@ -16,6 +16,19 @@ SIFT3. Propose workflow and methodology for how DFIR process and techniques
 are integrated into the notebooks and server environment and walk through a 
 sample investigation in a notebook. 
 
+Files
+------
+
+* Paper draft in DOC, txt
+* example notebooks:
+ * win5mem : Volatility memory analysis of WinXP sample, template 
+* logos, from openclipart.org originals, Inkscape
+* paper graphs and images, full size & crops
+* python samples : 
+ * pscsv.py: Volatility process list with csv output
+ * install, new case scripts
+* resources: Articles and conference presentations
+
 License
 --------
 
