@@ -11,7 +11,7 @@ Scientific Notebook Software
 GIAC (GCIH) Gold Certification
 Author: Ben S. Knowles, adric@adric.net
 Advisor: Manuel Humberto Santander Pelaez, Manuel.Santander@epm.com.co
-Draft: February 23, 2015  
+Draft: February 25, 2015  
 
 
 Abstract
@@ -138,7 +138,7 @@ directory. A default profile is created on install and additional profiles can b
 invoked when running IPython applications to select a configuration as in this example 
 first invocation of IPython notebook UI.
        
-      IPython first run creates profile
+       Fig 1: IPython first run creates profile
       After installation, ipython notebook will start the notebook server and open the 
 default web browser to the home page displaying notebooks. A new notebook can be 
 created and opened with one click and will load in a new browser tab with a new code 
@@ -147,7 +147,7 @@ to in the profile or a notebook. With IPython 3.0 (Project Jupyter) notebooks ca
 selection of different language kernels and there is a kernel selector in the default toolbar 
 top right.
        
-      (IMG Jupyter standard notebook header)
+       Fig 2: Jupyter standard notebook header with kernel selector
       A user interface tour is offered on first invocation that briefly explains the UI, 
 highlights core notebook functionality, and directs the user to online help for more 
 information.
@@ -172,9 +172,6 @@ Computing and Visualization Cookbook was composed in notebooks and then processe
 for electronic and print publication as explained by the author in the Preface (Rossant, 
 2014).
 2.1.2.	Notebook Architecture
-      FIXME Code cell features ? Move or cut:
-       
-      (IMG python code cell, win5mem)
       IPython is written in Python but with versions 2 and 3 has included more support 
 for using other languages. Notebooks have always supported use of essentially any 
 accessible tool though shebang, line, and cell magics, and IPython 3.x can actually run 
@@ -185,7 +182,11 @@ announced and begun an ambitious plan to spin off the notebook components into t
 own project, Jupyter (Perez, 2014).
       IPython notebooks are comprised of meta-data and cells. A single notebook can 
 include cells input as code, Markdown , or  headers, and the  output in text, graphics or 
-other formats (IPython, 2014x).
+other formats (IPython, 2014x). Code cells feature syntax highlighting and tab auto-
+completion to help with code input and readability.
+       
+       Fig 3: python code cell from win5mem, tab completion
+      
 2.1.3.	Notebooks Format
       The IPython software as well as the notebooks are free and open source, cross-
 platform, and use an open architecture documented in IPython manuals. Notebook files 
@@ -219,7 +220,7 @@ skipped over in your presentation. Once slides are selected nbconvert can proces
 your notebook into a slides-only document in HTML or PDF or run the slideshow live in 
 a browser using the Reveal.js framework (Hattab, 2014).
        
-      [IMG react slides invoke with nbconvert]
+       Fig 4: start Reveal.js slideshow with nbconvert
       Hannes Bretschneider, a PhD Student in Computer Science at the University of 
 Toronto, explains how to hide the input cells for notebook slides shows with HTML and 
 CSS in a blog post from November 2013 and provides a simple script demonstrating the 
@@ -234,8 +235,10 @@ with full rich text formatting and graphics or printed in the browser. The chart
 visualization libraries available through notebooks can render out graphics files for reuse, 
 such as this graphic from the DFIRnotes win5mem memory analysis sample notebook 
 (DFIRnotes, 2014).
+
+
        
-      (FIXME IMG process chart from win5mem)
+       Fig 5: Process Counts plot from win5mem
 2.2.2.	Notebook security features: 
       The notebook software system has several security features starting inside the 
 notebook files themselves. Since IPython 2.0, the notebook file metadata contain a hash 
@@ -298,9 +301,9 @@ Volatility and Rekall. It is recommended to download the profiles needed for an
 investigation ahead of time and like all software these may need to be updated or 
 replaced as upstream changes. 
       The live slideshow feature of IPython notebooks uses the JavaScript library 
-React.js and looks for it online by default when running slideshows out of nbconvert. The 
-React.js project provides instructions online for downloading the library and configuring 
-for offline use (Hattab, 2014) 
+Reveal.js and looks for it online by default when running slideshows out of nbconvert. 
+The Reveal.js project provides instructions online for downloading the library and 
+configuring for offline use (Hattab, 2014) 
       All of the tools tested for this project were easily configured for offline use and 
 the sample install script in the DFIRnotes GitHub project contains the detailed steps.
 2.3.2.	Hardening
@@ -359,50 +362,51 @@ project (DFIRnotes, 2014).
 matching the investigation, in this case Windows XP memory triage (win5mem), fills in 
 the case details, and reviews the investigation plan. 
        
-      (IMG case meta RTF for win5mem)
+       Fig 6:  Case meta from win5mem, Markdown
       Once the header cell form is completed in Markdown executing the cell with 
 toolbar buttons or keyboard shortcuts renders it as rich text.
        
-      (FIXME IMG caption me)
+       Fig 7: Case meta from win5mem
       The completed investigation plan should detail the questions to answer and 
 contain any hypotheses to disprove for the case. For memory analysis in the triage 
 scenario we use the methodology from SEC504 Day 5 (SEC504, 2014).
        
-      (IMG imv plan from 504.5)
+       Fig 8: investigation plan from 504.5, in win5mem
       After completing the investigation information block and saving the new 
 notebook under its correct name, the handler updates the variable names specific to the 
 evidence and procedure specifying the path to the memory image and selecting (and 
 verifying) a Volatility profile for that image. Executing this code cell sets the variables 
 we will use for the analysis.
        
-      (IMG python code cell variables)
+       Fig 9: code cell variables from win5mem
 2.4.2.	Analysis
       Using the redefined variables the handler executes the code cells provided from 
 the template to quickly complete the first stage of the investigation plan by enumerating 
 the process and connections with a batch of Volatility queries. The output is then read 
 into Pandas dataframes to plot graphs.
-       
-      (IMG process barh, win5mem)
+      [ ]
+       FIXME Fig 10 IMG pandas plot code from win5mem
       Based on the occurrence counts and details from the process and connection data 
 the handler examines some processes and connections further and charts that data as well.
        
-      (IMG IE ps connections, win5mem)
+       Fig 11: IE process connections graph from win5mem
 2.4.3.	Recommend action
       From the process and connection data and an understanding of the Windows 
 platform the handler identifies suspicious processes and another host implicated in the 
 activity. The handler summarizes the results with charts and brief statements and 
 recommends action, in this case containment and further investigation. 
-      (FIXME IMG results, win5mem)
+      [  ]
+       Fig 12: FIXME IMG results, win5mem
 2.4.4.	Collaborate
       With the investigation plan completed and results in hand the handler can consult 
 with peers by sharing the notebook application session live with conferencing software or 
 present to a group by using nbconvert to run a slideshow from the notebook. 
        
-      [IMG react slides invoke with nbconvert]
-      React.js loads the slides in a web browser application with navigational aids 
+       Fig 13: Reveal.js slideshow with nbconvert
+      Reveal.js loads the slides in a web browser application with navigational aids 
 including a subtle progress bar at the top and optional separate display of speaker notes.
        
-      (IMG susp procs slideview)
+       Fig 14: Suspicious Process slide in Reveal.js
 2.4.5.	Reporting
       Once any teammates' contributions are incorporated the completed notebook file 
 can be saved (ipynb extension). The notebook can be checked into revision control, 
@@ -517,8 +521,8 @@ research and development teams [Article]. Retrieved from
 http://workbench.readthedocs.org/en/latest/
 May cut and put in appendix, out of scope
 DFIR notebooks - GCIH Gold
-2
-0
+1
+7
 
 Ben S. Knowles, adric@adric.net		
 
