@@ -76,14 +76,14 @@ in science because of the inherent transparency of source availability. FOSS too
 often easier to customize and modify and the absence of software license fees removes 
 many barriers to adoption that have slowed the spread of excellent commercial tools in 
 the same fields. FOSS tools with a large community can develop very rapidly, as is the 
-case with the Linux and FreeBSD operating systems (FIXME, better examples).
+case with the GNU/Linux and FreeBSD operating systems.
       In fact many popular scientific tools as well as an impressive selection of DFIR 
 tools are written in the open source Python language including Volatility, Rekall, and 
-log2timeline. The IPython project started as a set of tools to use python and other 
-languages for scientific computing, mathematics, and analysis (Roussant, 2014). IPython 
-offers an enhanced Python interpreter terminal with built in editing, syntax highlighting, 
-and auto-completion features and a sophisticated interactive notebook interface driven by 
-the IPython core and using the same kernel. 
+plaso. The IPython project started as a set of tools to use python and other languages for 
+scientific computing, mathematics, and analysis (Roussant, 2014). IPython offers an 
+enhanced Python interpreter terminal with built in editing, syntax highlighting, and auto-
+completion features and a sophisticated interactive notebook interface driven by the 
+IPython core and using the same kernel. 
       The IPython system and its notebook format has become so widely used and 
 successful with users of other science programming languages including R and Julia that 
 a new project was launched in 2014 to better support the broader use and push the 
@@ -163,7 +163,7 @@ community and its annual conference SciPy (Shen, 2014)
       IPython notebooks have become increasingly popular with researchers and 
 developers in just a few years. Many presentations and papers at conferences (not just at 
 SciPy) use IPython notebooks as demonstrated by the IPython project's "gallery of 
-interesting notebooks" (IPython, 2014x) and some science weblog sites are published 
+interesting notebooks" (IPython, 2014a) and some science weblog sites are published 
 using notebooks including Damian Avila's site http://www.damian.oquanta.info which 
 has many useful tips for using and presenting with notebooks (Avila, 2014). 
       More ambitiously some teams are using notebooks completely for their 
@@ -182,7 +182,7 @@ announced and begun an ambitious plan to spin off the notebook components into t
 own project, Jupyter (Perez, 2014).
       IPython notebooks are comprised of meta-data and cells. A single notebook can 
 include cells input as code, Markdown , or  headers, and the  output in text, graphics or 
-other formats (IPython, 2014x). Code cells feature syntax highlighting and tab auto-
+other formats (IPython, 2014g). Code cells feature syntax highlighting and tab auto-
 completion to help with code input and readability.
        
        Fig 3: python code cell from win5mem, tab completion
@@ -191,7 +191,7 @@ completion to help with code input and readability.
       The IPython software as well as the notebooks are free and open source, cross-
 platform, and use an open architecture documented in IPython manuals. Notebook files 
 are text encoded serialized objects in the popular JavaScript Object Notation (JSON) 
-format. (IPython, 2014x) Although the internal format of the notebook is not guaranteed 
+format. (IPython, 2014c) Although the internal format of the notebook is not guaranteed 
 to be stable between releases, the JSON format allows for manual inspection and 
 troubleshooting of notebook contents and various useful programmatic manipulations. 
 For example, notebooks files check in easily to version control systems such as Git and 
@@ -243,26 +243,25 @@ such as this graphic from the DFIRnotes win5mem memory analysis sample notebook
       The notebook software system has several security features starting inside the 
 notebook files themselves. Since IPython 2.0, the notebook file metadata contain a hash 
 signed by a private key specific to the individual installation. The private key is kept in 
-the user's IPython profile. As detailed by the online documentation at 
-http://ipython.org/ipython-doc/dev/notebook/security.html this allows the notebook 
-software to recognize notebooks that were created on that instance and in the security 
-model these are regarded as trusted (IPython, 2014x). Untrusted notebooks have 
-restricted execution of cells to prevent rogue scripts and malicious code from running 
-without permission. For example, an untrusted (foreign) notebook's cells will not execute 
-automatically on load. A notebook can be trusted manually to remove these protections in 
-the Web UI or on the command line with the trust utility.
+the user's IPython profile. As detailed by the IPython online documentation this allows 
+the notebook software to recognize notebooks that were created on that instance and in 
+the security model these are regarded as trusted (IPython, 2014d). Untrusted notebooks 
+have restricted execution of cells to prevent rogue scripts and malicious code from 
+running without permission. For example, an untrusted (foreign) notebook's cells will not 
+execute automatically on load. A notebook can be trusted manually to remove these 
+protections in the Web UI or on the command line with the trust utility.
       Although it is not recommended to expose the notebook server to hostile networks 
 the notebook server software can be configured for authentication and encrypted 
 connections to reduce risks of unauthorized access and intercepted communications 
-(IPython, 2014x). A shared login password's hash representation can be set in the profile 
+(IPython, 2014f). A shared login password's hash representation can be set in the profile 
 via configuration file and the notebook server software can use transport layer security 
 (TLS) for secure web connections if a certificate is provided. A support document explain 
-the process and configuration options (IPython, 2014x).
+the process and configuration options (IPython, 2014f).
       Another security system of the notebook software is the separate notebook 
 viewer. Rather than enabling interactivity and computation, nbviewer is specifically 
 designed to allow for reading notebooks without executing their content.  As explained in 
 the FAQ, "The Notebook Viewer uses IPython's nbconvert to export .ipynb files to 
-HTML." (IPython, 2014x). A public nbviewer instance hosts many of the example 
+HTML." (IPython, 2014e). A public nbviewer instance hosts many of the example 
 notebooks from IPython developers and security researchers alike. The development 
 version of nbviewer is now part of Jupyter and its source is available through their 
 GitHub. 
@@ -280,7 +279,7 @@ GitHub (SANS DFIR, 2014). The Ubuntu system package tools and python pip utility
 can be used to install all of the dependencies and optional tools to make good use of 
 notebook software. SIFT version 3 includes IPython but additional utilities and libraries 
 are needed for full notebook server use and some nbconvert functions. A sample install 
-script for the dependencies is provided in the DFIRnotes GitHub project. (FIXME install)
+script for the dependencies is provided in the DFIRnotes GitHub project.
 2.3.1.	Offline 
       One peculiarity of designing systems for incident response or digital forensics is  
 they must usually operate in restricted networks without Internet access or sometimes 
@@ -327,11 +326,10 @@ and privacy settings, and feature selection (eg disable MathJAX) can be set in t
 notebook configuration files within a profile. Scripts can be configured to provide 
 additional features in this way. A file included in the default profile at 
 .ipython/profile_default/startup/README explains how to add scripts that run with the 
-application server startup, such as this example script from the IPython project cookbook 
+application server startup, such as an example script from the IPython project cookbook 
 which logs all IPython commands (not just notebook cell entry) to a separate log file 
-(IPython, 2014x).
-      FIXME customizations, like logging commands:
-      .ipython/profile_default/startup/05_log.py (REFME log5)
+when copied or linked into your profile as .ipython/profile_default/startup/05_log.py 
+(IPython, 2014b).
       Startup scripts, and all profile modifications, should be used carefully and 
 compatibility with all software checked. The example logging script uses Python 2.7 
 syntax that does not work correctly under Python 3.
@@ -383,9 +381,10 @@ we will use for the analysis.
       Using the redefined variables the handler executes the code cells provided from 
 the template to quickly complete the first stage of the investigation plan by enumerating 
 the process and connections with a batch of Volatility queries. The output is then read 
-into Pandas dataframes to plot graphs.
-      [ ]
-       FIXME Fig 10 IMG pandas plot code from win5mem
+into Pandas dataframes to plot graphs using some tips from the Data Science Lab's 
+Wordpress site ( Data Science Lab, 2013 ).
+       
+       Fig 10 pandas plot code from win5mem
       Based on the occurrence counts and details from the process and connection data 
 the handler examines some processes and connections further and charts that data as well.
        
@@ -395,18 +394,16 @@ the handler examines some processes and connections further and charts that data
 platform the handler identifies suspicious processes and another host implicated in the 
 activity. The handler summarizes the results with charts and brief statements and 
 recommends action, in this case containment and further investigation. 
-      [  ]
-       Fig 12: FIXME IMG results, win5mem
+       
+       Fig 12: Results process chart from win5mem
 2.4.4.	Collaborate
       With the investigation plan completed and results in hand the handler can consult 
 with peers by sharing the notebook application session live with conferencing software or 
 present to a group by using nbconvert to run a slideshow from the notebook. 
-       
-       Fig 13: Reveal.js slideshow with nbconvert
       Reveal.js loads the slides in a web browser application with navigational aids 
 including a subtle progress bar at the top and optional separate display of speaker notes.
        
-       Fig 14: Suspicious Process slide in Reveal.js
+       Fig 13: Suspicious Process slide in Reveal.js
 2.4.5.	Reporting
       Once any teammates' contributions are incorporated the completed notebook file 
 can be saved (ipynb extension). The notebook can be checked into revision control, 
@@ -420,8 +417,8 @@ formal reports.
 2.4.6.	Workflow possibilities
       The workflow described is flexible enough to support teams of different sizes and 
 capabilities and offers many points for possible automation through scripting and 
-programming. A sample new case script is available from the dfirnotes GitHub project 
-that includes some simple workflow automation hooks (FIXME). 
+programming. A sample new case script is available from the DFIRnotes GitHub project 
+that includes some simple workflow automation hooks. 
       More sophisticated scripts could incorporate user input to select templates, set up 
 case meta-data, or even start background processing of evidence. Interactive forms are 
 possible with use of the IPython notebook widgets and JavaScript. With even more 
@@ -434,8 +431,9 @@ can be easily and effectively customized to enhance DFIR activities by supportin
 stronger analysis, enabling better reporting, and by powering analyst and responder 
 mentoring and education. Notebooks are a flexible interface to DFIR software and are 
 already used by DFIR tool projects like Workbench and Rekall.  (Workbench, 2014) and 
-many sample analyses are posted by projects and individuals alike. (FIXME A selection 
-of public exemplar DFIR notebooks are linked in the dfirnotes GitHub project.)
+many sample analyses are posted by projects and individuals alike. A selection of 
+educational public DFIR notebooks from various authors are linked in the DFIRnotes 
+GitHub project.
       The IPython notebook and included data analysis packages bring DFIR data into 
 the standard formats including Pandas Dataframe and Hierarchal Data Format (HDF) 
 used by researchers worldwide with science software packages of all kinds. This make 
@@ -459,6 +457,10 @@ slideshows-will-change-the-way-you-work/
 Carrier, Brian (2005). File System Forensic Analysis. Addison-Wesley: Upper Saddle 
 River, NJ.
 
+Data Science Lab (2013). Beautiful plots with Pandas and Matplotlib [Web log post]. 
+Retrieved from https://datasciencelab.wordpress.com/2013/12/21/beautiful-plots-
+with-pandas-and-matplotlib/
+
 Department of Defense (2012). Cyber Incident Handling Program. Retrieved from 
 http://dtic.mil/cjcs_directives/cdata/unlimit/m651001.pdf
 
@@ -467,27 +469,27 @@ DFIRNotes Project (2015). https://github.com/adricnet/dfirnotes/
 Hattab, Hakim El (2014). Reveal.js Full Install [Web log post]. Retrieved from 
 https://github.com/hakimel/reveal.js/#full-setup
 
-IPython Project (2014). A gallery of interesting IPython notebooks [Wiki entry]. 
+IPython Project (2014a). A gallery of interesting IPython notebooks [Wiki entry]. 
 Retrieved from 
             https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-
 Notebooks
 
-IPython Project (2014). Cookbook: Dated logging [Wiki entry]. Retrieved from 
+IPython Project (2014b). Cookbook: Dated logging [Wiki entry]. Retrieved from 
             https://github.com/ipython/ipython/wiki/Cookbook:-Dated-logging
 
-IPython Project (2014). Notebook JSON file format [Article]. Retrieved from 
+IPython Project (2014c). Notebook JSON file format [Article]. Retrieved from 
             http://ipython.org/ipython-doc/stable/notebook/nbconvert.html#notebook-format
 
-IPython Project (2014). Notebook security features [Article]. Retrieved from 
+IPython Project (2014d). Notebook security features [Article]. Retrieved from 
 http://ipython.org/ipython-doc/dev/notebook/security.html
 
-IPython Project (2014). Notebook viewer FAQ [Article]. Retrieved from      
+IPython Project (2014e). Notebook viewer FAQ [Article]. Retrieved from      
 http://nbviewer.ipython.org/faq
 
-IPython Project (2014). Securing a notebook server [Article]. Retrieved from 
+IPython Project (2014f). Securing a notebook server [Article]. Retrieved from 
 http://ipython.org/ipython-doc/dev/notebook/public_server.html
 
-IPython Project (2014). Structure of a notebook document [Article]. Retrieved from 
+IPython Project (2014g). Structure of a notebook document [Article]. Retrieved from 
 http://ipython.org/ipython-doc/stable/notebook/notebook.html#structure-of-a-
 notebook-document
 
@@ -521,8 +523,8 @@ research and development teams [Article]. Retrieved from
 http://workbench.readthedocs.org/en/latest/
 May cut and put in appendix, out of scope
 DFIR notebooks - GCIH Gold
+2
 1
-7
 
 Ben S. Knowles, adric@adric.net		
 
