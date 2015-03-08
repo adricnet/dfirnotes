@@ -11,19 +11,19 @@ Scientific Notebook Software
 GIAC (GCIH) Gold Certification
 Author: Ben S. Knowles, adric@adric.net
 Advisor: Manuel Humberto Santander Pelaez, Manuel.Santander@epm.com.co
-Draft: February 25, 2015  
+Draft: March 7, 2015  
 
 
 Abstract
 Use free and open source scientific notebook software to perform analysis and 
-record results simultaneously in a open, flexible, portable format for ease of sharing 
-and reporting.  Fully worked samples can improve analyst and responder mentoring 
-and education. Use of notebook templates can encourage good practices, uphold 
-standards, and improve investigative rigor for better DFIR science and better 
-incident response. Detail some configuration options and server platform notes for 
-SIFT3. Propose workflow and methodology for how DFIR process and techniques 
-are integrated into the notebooks and server environment and walk through a 
-sample investigation in a notebook. 
+record results simultaneously in an open, flexible, portable format for ease of 
+sharing and reporting.  Fully worked samples can improve analyst and responder 
+mentoring and education. Use of notebook templates can encourage good practices, 
+uphold standards, and improve investigative rigor for better DFIR science and 
+better incident response. Detail some configuration options and server platform 
+notes for SIFT3. Propose workflow and methodology for how DFIR process and 
+techniques are integrated into the notebooks and server environment and walk 
+through a sample investigation in a notebook. 
 
 
 1.	Introduction
@@ -32,42 +32,42 @@ sample investigation in a notebook.
 Technology (NIST) Guide to Integrating Forensic Techniques into Incident Response as 
 "the application of science to the identification, collection, examination, and analysis of 
 data while preserving the integrity of the information and maintaining a strict chain of 
-custody for the data." (NIST, 2006).
-      In the introductory chapter of File System Forensic Analysis Brian Carrier 
-explains his use of some key terms in a section titled "Digital Investigations and 
-Evidence". (Carrier, 2005) He defines digital investigations and digital evidence in 
-relation to computer investigation techniques and forensics science and distinguishes use 
-of these techniques for forensics purposes specifically as digital forensics investigations 
-(DFI) to distinguish them from other more general digital investigations and better align 
-them with related fields of law-related forensic techniques such as physical crime scene 
+custody for the data" (NIST, 2006).
+      In the introductory chapter of his seminal 2005 File System Forensic Analysis 
+Brian Carrier explains his use of some key terms in a section titled "Digital Investigations 
+and Evidence". He defines digital investigations and digital evidence in relation to 
+computer investigation techniques and forensics science and distinguishes use of these 
+techniques for forensics purposes specifically as digital forensics investigations (DFI) to 
+distinguish them from other more general digital investigations and better align them with 
+related fields of law-related forensic techniques such as physical crime scene 
 investigations and criminalistics. Carrier explains, "A digital forensics investigation is a 
 process that uses science and technology to analyze digital objects and that develops and 
 tests theories, which can be entered into a court of law, to answer questions about events 
-that occurred." (Carrier, 2005)
+that occurred" (Carrier, 2005).
 1.2.	Incident Response
       In The SANS Institute Hacker Tools, Techniques, Exploits and Incident Handling 
 course (SEC504) authors Ed Skoudis and John Strand define incident handling as "an 
-action plan for responding to misuse of information systems" (SEC504, 2014). 
+action plan for responding to misuse of information systems" (2014). 
       Incident response, then, is effectively applying those plans in response to an 
 incident to reduce or remove incident effects on protected systems and organizations. 
 Having prepared plans and using them well is vital to effective response. Not having or 
 not using incident response plans is cited as the number one reason for ineffective 
-response in SEC504. (SEC504, 2014)  Another common failure is not taking good notes 
+response in SEC504 (SEC504, 2014). Another common failure is not taking good notes 
 in an incident. This not only hampers effective reporting and communication within the 
 team and to stakeholders, but may also interfere with the reproducibility of key results.
       Incident response decisions, and therefore the success of the entire process, rely 
 on effective analysis and communication. Whether implied in the major phases of the 
 standard Plan, Identify, Contain, Eradicate, Recover, Learn (PICERL) process or 
-explicitly identified in a more complex process like that of DOD 6510.B incident 
+explicitly identified in a more complex process like that of DOD 6510.B, incident 
 response pivots on analysis, its strength, and how well results are communicated to 
 stakeholders (DOD, 2012).
 1.3.	DF in IR
       Security professionals and educators who make use of digital forensics techniques 
 in incident response have coined the acronym "DFIR" for their specific application of 
-using digital forensic science with incident response and it is common defined as "digital 
-forensics, incident response". Another expansion of the acronym DFIR using Carrier's 
-definition could be: "DFI in IR", using the tools and techniques developed for digital 
-forensics science directly in incident response.
+using digital forensic science with incident response and it is commonly defined as 
+"digital forensics, incident response." Another expansion of the acronym DFIR using 
+Carrier's definition could be: "DFI in IR", using the tools and techniques developed for 
+digital forensics science directly in incident response.
 1.4.	IPython science notebooks
       The global scientific community uses a variety of software tools to aid research 
 and analysis and many are available as free or open source software (FOSS) for free use, 
@@ -77,11 +77,11 @@ often easier to customize and modify and the absence of software license fees re
 many barriers to adoption that have slowed the spread of excellent commercial tools in 
 the same fields. FOSS tools with a large community can develop very rapidly, as is the 
 case with the GNU/Linux and FreeBSD operating systems.
-      In fact many popular scientific tools as well as an impressive selection of DFIR 
-tools are written in the open source Python language including Volatility, Rekall, and 
-plaso. The IPython project started as a set of tools to use python and other languages for 
-scientific computing, mathematics, and analysis (Roussant, 2014). IPython offers an 
-enhanced Python interpreter terminal with built in editing, syntax highlighting, and auto-
+      Many popular scientific tools as well as an impressive selection of DFIR tools are 
+written in the open source Python language including Volatility, Rekall, and plaso. The 
+IPython project started as a set of tools to use Python and other languages for scientific 
+computing, mathematics, and analysis (Roussant, 2014). IPython offers an enhanced 
+Python interpreter terminal with built-in editing, syntax highlighting, and auto-
 completion features and a sophisticated interactive notebook interface driven by the 
 IPython core and using the same kernel. 
       The IPython system and its notebook format has become so widely used and 
@@ -89,23 +89,23 @@ successful with users of other science programming languages including R and Jul
 a new project was launched in 2014 to better support the broader use and push the 
 technology further. Announced at PyCon in July 2014 Project Jupyter will take over the 
 infrastructure of IPython and brings native support for kernels in Python 2, Python 3, 
-Julia, and R. (Perez, 2014) As of early 2015, development of IPython 3.0 and Jupyter 
-continues, and many of the new capabilities are already available in some form including 
-the multi-user notebook Collaboratory, Google Drive notebook support, and ephemeral 
-notebook server tmpnb (Jupyter, 2015).
+Julia, and R. (Perez, 2014) As March 2015, IPython 3.0 has been released and Jupyter 
+development continues. Many of the new Jupyter capabilities are already available in 
+some form including the multi-user notebook Collaboratory, Google Drive notebook 
+support, and ephemeral notebook server tmpnb (Jupyter, 2015).
 1.5.	DFIR notebooks
       The IPython notebook with its power, flexibility, and transparency is an excellent 
 tool to perform DFIR analysis, collaborate with teams, and report results.  The open 
 source IPython application stack and notebook format allow leaders as well as 
 investigators to understand and verify the machinery of the analysis workflow as well as 
 any specific result. IPython notebooks smoothly interface not just with Python software 
-but can also call out to other languages or use system commands allowing easy 
+but can also call out to other languages or use system commands. This allows easy 
 integration of any tool with a command line interface, the ability to read and write files, 
 or network access. 
       Standard notebooks and supporting workflows can improve consistency of 
 analysis amongst teams and aid reproducibility of results. Templates can encourage 
 analysts to follow processes completely and consistent formatting of case tracking 
-information and meta-data aid record keeping and can smooth handoffs between teams or 
+information and meta-data aid record-keeping and can smooth handoffs between teams or 
 shifts. Notebooks with good supporting workflow are self-documenting and the analysis 
 and results in a notebook are inherently reproducible by loading the notebook onto 
 another system with access to the same evidence and re-running cells or the entire 
@@ -130,9 +130,9 @@ project (DFIRnotes, 2015).
 with other projects easier. With IPython 2.0 the kernel supports three user interfaces 
 (UIs): the IPython enhanced text console, a graphical console powered by Trolltech's QT 
 platform, and the web browser notebook interface. All computation takes place in the 
-kernel and communication with the UIs uses a standard messaging framework. In fact 
-multiple UIs can be attached to one kernel and thereby share code and data objects while 
-multiple kernels can be run on one system and be isolated from one another.
+kernel and communication with the UIs uses a standard messaging framework. In fact, 
+multiple UIs can be attached to one kernel and share code and data objects while multiple 
+kernels can be run on one system and be isolated from one another.
       IPython kernels, UIs, and utilities are configured primarily through the profile 
 directory. A default profile is created on install and additional profiles can be created and 
 invoked when running IPython applications to select a configuration as in this example 
@@ -142,10 +142,10 @@ first invocation of IPython notebook UI.
       After installation, ipython notebook will start the notebook server and open the 
 default web browser to the home page displaying notebooks. A new notebook can be 
 created and opened with one click and will load in a new browser tab with a new code 
-cell open. The built-in logo header menus and toolbar will display unless configured not 
-to in the profile or a notebook. With IPython 3.0 (Project Jupyter) notebooks can use a 
-selection of different language kernels and there is a kernel selector in the default toolbar 
-top right.
+cell open. The built-in logo header menus and toolbar will display unless configured 
+otherwise in the profile or a notebook. With IPython 3.0 (Project Jupyter) notebooks can 
+use a selection of different language kernels and there is a kernel selector in the default 
+toolbar top right.
        
        Fig 2: Jupyter standard notebook header with kernel selector
       A user interface tour is offered on first invocation that briefly explains the UI, 
@@ -167,10 +167,10 @@ interesting notebooks" (IPython, 2014a) and some science weblog sites are publis
 using notebooks including Damian Avila's site http://www.damian.oquanta.info which 
 has many useful tips for using and presenting with notebooks (Avila, 2014). 
       More ambitiously some teams are using notebooks completely for their 
-publications. In fact the newest IPython book by Cyrille Rossant IPython Interactive 
-Computing and Visualization Cookbook was composed in notebooks and then processed 
-for electronic and print publication as explained by the author in the Preface (Rossant, 
-2014).
+publications. For example, the newest IPython book by Cyrille Rossant IPython 
+Interactive Computing and Visualization Cookbook was composed in notebooks and then 
+processed for electronic and print publication as explained by the author in the Preface 
+(Rossant, 2014).
 2.1.2.	Notebook Architecture
       IPython is written in Python but with versions 2 and 3 has included more support 
 for using other languages. Notebooks have always supported use of essentially any 
@@ -196,17 +196,17 @@ to be stable between releases, the JSON format allows for manual inspection and
 troubleshooting of notebook contents and various useful programmatic manipulations. 
 For example, notebooks files check in easily to version control systems such as Git and 
 Fossil and can be processed into other formats directly if more customization or 
-automation is desired than is provided by the notebook application. (Rossant, 2014) In 
-fact robust utilities for some of these transforms are included in IPython in the nbconvert 
+automation is desired than is provided by the notebook application (Rossant, 2014). 
+Robust utilities for some of these transforms are included in IPython in the nbconvert 
 package.
 2.2.	Notebook communication and security features
 2.2.1.	Notebook reporting & collaboration features
       The structure of the IPython notebook lends itself not only to ease of use for 
-programming and analysis but includes robust support for documentation, reports, and 
-even presentation. The cells of a notebook are configurable to different modes for code, 
-rich text, or headers. Switch the mode of a cell with the menus or keyboard shortcuts to 
-code, define multiple levels of headings, or to input full Markdown structured text which 
-will display as styled rich text when the cell is executed.
+programming and analysis but also includes robust support for documentation, reports, 
+and even presentation. The cells of a notebook are configurable to different modes for 
+code, rich text, or headers. Switch the mode of a cell with the menus or keyboard 
+shortcuts to code, define multiple levels of headings, or to input full Markdown 
+structured text which will display as styled rich text when the cell is executed.
       To share progress you can send an IPython notebook to colleagues as a file 
 attachment or check it in to version control. Rather than sharing all of your work by 
 sending the notebook you can process out an HTML rendering of your current notebook 
@@ -225,7 +225,7 @@ a browser using the Reveal.js framework (Hattab, 2014).
 Toronto, explains how to hide the input cells for notebook slides shows with HTML and 
 CSS in a blog post from November 2013 and provides a simple script demonstrating the 
 technique (Bretschneider, 2013).
-      IPython notebooks offer also options for sharing completed results in notebooks. 
+      IPython notebooks also offer options for sharing completed results in notebooks. 
 The nbconvert utility can use available system document processing tools to process 
 notebooks in batch, for example as into portable document format (PDF) files with the 
 pdflatex package. The notebook web UI features a print preview function using pandoc 
@@ -239,47 +239,47 @@ such as this graphic from the DFIRnotes win5mem memory analysis sample notebook
 
        
        Fig 5: Process Counts plot from win5mem
-2.2.2.	Notebook security features: 
+2.2.2.	Notebook security features
       The notebook software system has several security features starting inside the 
 notebook files themselves. Since IPython 2.0, the notebook file metadata contain a hash 
 signed by a private key specific to the individual installation. The private key is kept in 
-the user's IPython profile. As detailed by the IPython online documentation this allows 
-the notebook software to recognize notebooks that were created on that instance and in 
-the security model these are regarded as trusted (IPython, 2014d). Untrusted notebooks 
+the user's IPython profile. As detailed by the IPython online documentation, this allows 
+the notebook software to recognize notebooks that were created on that instance and 
+these are regarded as trusted in the security model (IPython, 2014d). Untrusted notebooks 
 have restricted execution of cells to prevent rogue scripts and malicious code from 
 running without permission. For example, an untrusted (foreign) notebook's cells will not 
 execute automatically on load. A notebook can be trusted manually to remove these 
 protections in the Web UI or on the command line with the trust utility.
-      Although it is not recommended to expose the notebook server to hostile networks 
-the notebook server software can be configured for authentication and encrypted 
-connections to reduce risks of unauthorized access and intercepted communications 
-(IPython, 2014f). A shared login password's hash representation can be set in the profile 
-via configuration file and the notebook server software can use transport layer security 
-(TLS) for secure web connections if a certificate is provided. A support document explain 
-the process and configuration options (IPython, 2014f).
+      Although it is not recommended to expose the notebook server to hostile 
+networks, the software can be configured for authentication and encrypted connections to 
+reduce risks of unauthorized access and intercepted communications (IPython, 2014f). A 
+shared login password's hash representation can be set in the profile via configuration file 
+and the notebook server software can use transport layer security (TLS) for secure web 
+connections if a certificate is provided. An IPython support document explains the 
+process and configuration options (IPython, 2014f).
       Another security system of the notebook software is the separate notebook 
 viewer. Rather than enabling interactivity and computation, nbviewer is specifically 
 designed to allow for reading notebooks without executing their content.  As explained in 
-the FAQ, "The Notebook Viewer uses IPython's nbconvert to export .ipynb files to 
-HTML." (IPython, 2014e). A public nbviewer instance hosts many of the example 
-notebooks from IPython developers and security researchers alike. The development 
-version of nbviewer is now part of Jupyter and its source is available through their 
-GitHub. 
+the nbviewer documentation, "the Notebook Viewer uses IPython's nbconvert to export 
+.ipynb files to HTML" (IPython, 2014e). A public nbviewer instance hosts many of the 
+example notebooks from IPython developers and security researchers alike. The 
+development version of nbviewer is now part of Jupyter and its source is available 
+through their GitHub project. 
       The Jupyter project has ambitious goals including multi-user notebooks running 
 in public and private clouds, notebook software as web browser applications (eg in 
 Google Chrome), and quick deploy temporary notebooks (tmpnb). There are details and 
 active development on GitHub at https://github.com/jupyter.
 2.3.	Notebook Server Platform 
       Although the IPython notebook system is fully cross-platform and well supported 
-on most Windows, Macintosh, and UNIX systems, for consistency of tools and to reduce 
-support issues a standard platform is recommended. The SANS Investigative Forensics 
+on most Windows, Macintosh, and UNIX systems a standard platform is recommended 
+for consistency of tools and to reduce support issues. The SANS Investigative Forensics 
 Toolkit (SIFT) provides a wealth of analysis tools when installed atop a long term 
-support release (LTS) of Ubuntu GNU/Linux with the sift-bootstrap package available on 
-GitHub (SANS DFIR, 2014). The Ubuntu system package tools and python pip utility 
-can be used to install all of the dependencies and optional tools to make good use of 
-notebook software. SIFT version 3 includes IPython but additional utilities and libraries 
-are needed for full notebook server use and some nbconvert functions. A sample install 
-script for the dependencies is provided in the DFIRnotes GitHub project.
+support release (LTS) of Ubuntu GNU/Linux with the sift-bootstrap package available 
+from SANS on GitHub (SANS DFIR, 2014). The Ubuntu system package tools and 
+python pip utility can be used to install all of the dependencies and optional tools to make 
+good use of notebook software. SIFT version 3 includes IPython but additional utilities 
+and libraries are needed for full notebook server use and some nbconvert functions. A 
+sample install script for the dependencies is provided in the DFIRnotes GitHub project.
 2.3.1.	Offline 
       One peculiarity of designing systems for incident response or digital forensics is  
 they must usually operate in restricted networks without Internet access or sometimes 
@@ -303,8 +303,8 @@ replaced as upstream changes.
 Reveal.js and looks for it online by default when running slideshows out of nbconvert. 
 The Reveal.js project provides instructions online for downloading the library and 
 configuring for offline use (Hattab, 2014) 
-      All of the tools tested for this project were easily configured for offline use and 
-the sample install script in the DFIRnotes GitHub project contains the detailed steps.
+      All of the tools tested for this project were easily configured for offline use and a 
+sample script in the DFIRnotes GitHub project contains the detailed steps.
 2.3.2.	Hardening
       Response and analysis systems should be hardened against the potential threats 
 modeled in incident response planning and in compliance with any organizational policy. 
@@ -331,8 +331,8 @@ which logs all IPython commands (not just notebook cell entry) to a separate log
 when copied or linked into your profile as .ipython/profile_default/startup/05_log.py 
 (IPython, 2014b).
       Startup scripts, and all profile modifications, should be used carefully and 
-compatibility with all software checked. The example logging script uses Python 2.7 
-syntax that does not work correctly under Python 3.
+compatibility with all software checked. The example logging script 05_log.py uses 
+Python 2.7 syntax that does not work correctly under Python 3.
       Also available within the profile are file locations for custom CSS and JavaScript. 
 The CSS file is used not only for styling of the notebook web UI, but also notebooks 
 browsed through nbviewer or processed by nbconvert (Roussant, 2014). Using custom 
@@ -342,78 +342,81 @@ JavaScript APIs are available live in a notebook cells, but are limited in scope
 configured in the profile will execute for each notebook opened or created and can be 
 quite powerful.
       The DFIRnotes sample install script also creates an IPython profile for DFIR 
-notebooks and configures some useful settings as well as a custom theme. It iss available 
+notebooks and configures some useful settings as well as a custom theme. It is available 
 in the DFIRnotes GitHub project. 
 2.4.	Notebook powered DFIR Workflow
       An example workflow for memory evidence triage will illustrate the advantages 
-of notebook software for DFIR. In this scenario an incident handler is presented with raw 
-evidence and a report of suspicious behaviour, must quickly determine if an incident has 
-occurred, and then report back to their team with recommended action. 
+of notebook software for DFIR. In this scenario an incident handler who is presented with 
+raw evidence and a report of suspicious behaviour must quickly determine if an incident 
+has occurred and then report back to their team with recommended action. 
       Pre-configured templates support analysts in following process and provide best 
 practices in executable form. For this example the template win5mem used is for 
 Volatility powered triage analysis of a Windows XP memory image. The template 
 provides a case data header, the basic investigation plan, and some scripting and analysis 
-code. The template and a completed sample are provided in the DFIRnotes GitHub 
-project (DFIRnotes, 2014).
+code. The win5mem template and a completed sample are provided in the DFIRnotes 
+GitHub project (DFIRnotes, 2014).
 2.4.1.	New investigation
       Upon receiving the case the handler opens a new notebook from the template 
 matching the investigation, in this case Windows XP memory triage (win5mem), fills in 
 the case details, and reviews the investigation plan. 
        
        Fig 6:  Case meta from win5mem, Markdown
-      Once the header cell form is completed in Markdown executing the cell with 
-toolbar buttons or keyboard shortcuts renders it as rich text.
+      Once the header cell meta-data form is completed in Markdown executing the cell 
+with IPython notebook toolbar buttons or keyboard shortcuts renders it as rich text.
        
-       Fig 7: Case meta from win5mem
+       Fig 7: Case meta-data from win5mem
       The completed investigation plan should detail the questions to answer and 
 contain any hypotheses to disprove for the case. For memory analysis in the triage 
-scenario we use the methodology from SEC504 Day 5 (SEC504, 2014).
+scenario we use the methodology from SEC504 Day 5 to look first for processes that 
+were communicating on the network (SEC504, 2014).
        
        Fig 8: investigation plan from 504.5, in win5mem
       After completing the investigation information block and saving the new 
 notebook under its correct name, the handler updates the variable names specific to the 
-evidence and procedure specifying the path to the memory image and selecting (and 
+evidence in this case specifying the path to the memory image and selecting (and 
 verifying) a Volatility profile for that image. Executing this code cell sets the variables 
 we will use for the analysis.
        
        Fig 9: code cell variables from win5mem
 2.4.2.	Analysis
-      Using the redefined variables the handler executes the code cells provided from 
-the template to quickly complete the first stage of the investigation plan by enumerating 
-the process and connections with a batch of Volatility queries. The output is then read 
-into Pandas dataframes to plot graphs using some tips from the Data Science Lab's 
-Wordpress site ( Data Science Lab, 2013 ).
+      Using the defined variables the handler executes the code cells provided from the 
+template to quickly complete the first stage of the investigation plan by enumerating the 
+process and connections with a batch of Volatility queries. The output is then read into 
+Pandas dataframes to plot graphs using some tips from the Data Science Lab's Wordpress 
+site (Data Science Lab, 2013 ).
        
        Fig 10 pandas plot code from win5mem
       Based on the occurrence counts and details from the process and connection data 
-the handler examines some processes and connections further and charts that data as well.
+the handler further examines some processes and connections of interest and charts that 
+data as well.
        
        Fig 11: IE process connections graph from win5mem
 2.4.3.	Recommend action
       From the process and connection data and an understanding of the Windows 
-platform the handler identifies suspicious processes and another host implicated in the 
-activity. The handler summarizes the results with charts and brief statements and 
-recommends action, in this case containment and further investigation. 
+platform, the handler identifies suspicious processes and another host implicated in the 
+activity. The handler summarizes the results with charts sliced from the dataframes and 
+writes brief statements to recommends action, in this case containment and further 
+investigation. 
        
        Fig 12: Results process chart from win5mem
 2.4.4.	Collaborate
       With the investigation plan completed and results in hand the handler can consult 
 with peers by sharing the notebook application session live with conferencing software or 
-present to a group by using nbconvert to run a slideshow from the notebook. 
+present to a group by using nbconvert to run a Reveal.js slideshow from the notebook. 
       Reveal.js loads the slides in a web browser application with navigational aids 
 including a subtle progress bar at the top and optional separate display of speaker notes.
        
        Fig 13: Suspicious Process slide in Reveal.js
 2.4.5.	Reporting
-      Once any teammates' contributions are incorporated the completed notebook file 
-can be saved (ipynb extension). The notebook can be checked into revision control, 
-attached to an incident case record for tracking, or just emailed as an attachment. Plots 
-and other generated artifacts can be created as independent image files in standard 
-formats displayed in a notebook. The images are then portable on their own. This 
-technique was used in the sample notebook for the graphs shown in this paper.
-      Once analysis is completed the handler can pull some or all of the results as rich 
-text into an office document via copy and paste and include the generated graphic files in 
-formal reports.
+      Once any team contributions are incorporated the completed notebook file can be 
+saved (ipynb extension). The notebook can be checked into revision control, attached to 
+an incident case record for tracking, or just emailed as a file attachment. Plots and other 
+generated artifacts can be created as independent image files in standard formats 
+displayed in a notebook. The images are then portable on their own. This technique was 
+used in the sample notebook for the graphs shown in this paper.
+      Once analysis is completed the handler can pull the results as rich text into an 
+office document via copy and paste and include the generated graphic files in formal 
+reports.
 2.4.6.	Workflow possibilities
       The workflow described is flexible enough to support teams of different sizes and 
 capabilities and offers many points for possible automation through scripting and 
@@ -422,7 +425,7 @@ that includes some simple workflow automation hooks.
       More sophisticated scripts could incorporate user input to select templates, set up 
 case meta-data, or even start background processing of evidence. Interactive forms are 
 possible with use of the IPython notebook widgets and JavaScript. With even more 
-automation notebook applications could be created and started on demand by remote 
+automation, notebook applications could be created and started on demand by remote 
 invocation from an investigation management system like Request Tracker Incident 
 Response (RTIR) from Best Practical. 
 2.5.	Conclusion
@@ -430,18 +433,18 @@ Response (RTIR) from Best Practical.
 can be easily and effectively customized to enhance DFIR activities by supporting 
 stronger analysis, enabling better reporting, and by powering analyst and responder 
 mentoring and education. Notebooks are a flexible interface to DFIR software and are 
-already used by DFIR tool projects like Workbench and Rekall.  (Workbench, 2014) and 
+already used by DFIR tool projects like Workbench and Rekall  (Workbench, 2014) and 
 many sample analyses are posted by projects and individuals alike. A selection of 
 educational public DFIR notebooks from various authors are linked in the DFIRnotes 
 GitHub project.
       The IPython notebook and included data analysis packages bring DFIR data into 
-the standard formats including Pandas Dataframe and Hierarchal Data Format (HDF) 
-used by researchers worldwide with science software packages of all kinds. This make 
-DFIR notebooks a bridge that can link process driven DFIR practices with the impressive 
-techniques of the emerging field of data science and take advantage not only of 
-descriptive and inferential statistical analysis but also newer analysis technologies like 
-map-reduce and machine learning to solve the challenges we face from processing ever 
-larger data sets to defend today's complex systems.
+the standard formats including Pandas dataframe and Hierarchal Data Format (HDF) used 
+by researchers worldwide with science software packages of all kinds. This make DFIR 
+notebooks a bridge that can link process driven DFIR practices with the impressive 
+techniques of the emerging field of data science. Responders can then take advantage not 
+only of descriptive and inferential statistical analysis but also newer analysis technologies 
+like map-reduce and machine learning in order to solve the challenges faced from 
+processing ever larger, richer data sets to defend today's complex systems.
 
 
 3.	References
@@ -521,10 +524,8 @@ http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261
 Workbench project (2014). Workbench: A scalable python framework for security 
 research and development teams [Article]. Retrieved from 
 http://workbench.readthedocs.org/en/latest/
-May cut and put in appendix, out of scope
 DFIR notebooks - GCIH Gold
 2
-1
 
 Ben S. Knowles, adric@adric.net		
 
