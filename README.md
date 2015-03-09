@@ -6,15 +6,7 @@ GIAC Gold project & paper: paper draft, examples, scripts, resources
 Paper Abstract
 -------
 
-Use free and open source scientific notebook software to perform analysis and 
-record results simultaneously in a open, flexible, portable format for ease of sharing 
-and reporting.  Fully worked samples can improve analyst and responder mentoring 
-and education. Use of notebook templates can encourage good practices, uphold 
-standards, and improve investigative rigor for better DFIR science and better 
-incident response. Detail some configuration options and server platform notes for 
-SIFT3. Propose workflow and methodology for how DFIR process and techniques 
-are integrated into the notebooks and server environment and walk through a 
-sample investigation in a notebook. 
+Free and open source scientific notebook software allows responders to perform analysis and record results simultaneously in an open, flexible, portable format for ease of sharing and reporting.  Fully worked samples can improve analyst and responder mentoring and education. Use of notebook templates can encourage good practices, uphold standards, and improve investigative rigor for better DFIR science and better incident response. Suggested configuration options and server platform notes for SIFT3 explain notebook setup for forensics. The proposed workflow and methodology show how DFIR process and techniques are integrated into notebooks and SIFT server environment and a walk through a sample investigation in notebooks illustrates the advantages.  
 
 Files
 ------

@@ -11,19 +11,20 @@ Scientific Notebook Software
 GIAC (GCIH) Gold Certification
 Author: Ben S. Knowles, adric@adric.net
 Advisor: Manuel Humberto Santander Pelaez, Manuel.Santander@epm.com.co
-Draft: March 7, 2015  
+Draft: March 8, 2015  
 
 
 Abstract
-Use free and open source scientific notebook software to perform analysis and 
-record results simultaneously in an open, flexible, portable format for ease of 
-sharing and reporting.  Fully worked samples can improve analyst and responder 
-mentoring and education. Use of notebook templates can encourage good practices, 
-uphold standards, and improve investigative rigor for better DFIR science and 
-better incident response. Detail some configuration options and server platform 
-notes for SIFT3. Propose workflow and methodology for how DFIR process and 
-techniques are integrated into the notebooks and server environment and walk 
-through a sample investigation in a notebook. 
+Free and open source scientific notebook software allows responders to perform 
+analysis and record results simultaneously in an open, flexible, portable format for 
+ease of sharing and reporting.  Fully worked samples can improve analyst and 
+responder mentoring and education. Use of notebook templates can encourage good 
+practices, uphold standards, and improve investigative rigor for better DFIR science 
+and better incident response. Suggested configuration options and server platform 
+notes for SIFT3 explain notebook setup for forensics. The proposed workflow and 
+methodology show how DFIR process and techniques are integrated into notebooks 
+and the SIFT server environment and a walk through a sample investigation with 
+notebooks illustrates the advantages. 
 
 
 1.	Introduction
@@ -38,7 +39,7 @@ Brian Carrier explains his use of some key terms in a section titled "Digital In
 and Evidence". He defines digital investigations and digital evidence in relation to 
 computer investigation techniques and forensics science and distinguishes use of these 
 techniques for forensics purposes specifically as digital forensics investigations (DFI) to 
-distinguish them from other more general digital investigations and better align them with 
+delineate them from other more general digital investigations and better align them with 
 related fields of law-related forensic techniques such as physical crime scene 
 investigations and criminalistics. Carrier explains, "A digital forensics investigation is a 
 process that uses science and technology to analyze digital objects and that develops and 
@@ -97,9 +98,9 @@ support, and ephemeral notebook server tmpnb (Jupyter, 2015).
       The IPython notebook with its power, flexibility, and transparency is an excellent 
 tool to perform DFIR analysis, collaborate with teams, and report results.  The open 
 source IPython application stack and notebook format allow leaders as well as 
-investigators to understand and verify the machinery of the analysis workflow as well as 
-any specific result. IPython notebooks smoothly interface not just with Python software 
-but can also call out to other languages or use system commands. This allows easy 
+investigators to understand and verify the machinery of the analysis workflow or any 
+specific result. IPython notebooks smoothly interface not just with Python software but 
+can also call out to other languages or use system commands. This allows easy 
 integration of any tool with a command line interface, the ability to read and write files, 
 or network access. 
       Standard notebooks and supporting workflows can improve consistency of 
@@ -115,7 +116,7 @@ reporting results whether formally or informally with documents or even slide sh
 presentations. Notebook files can be shared directly or used for reporting and 
 presentations using IPython features, optional libraries, and common office productivity 
 software. 
-      Notebooks features also support on-the-job training, mentoring, and formal 
+      Notebook features also support on-the-job training, mentoring, and formal 
 education allowing analysts and responders to share best practices as blank templates as 
 well as fully or partially worked samples. Current notebook software supports simple 
 "pair analysis" with dual monitor or online collaboration systems and future versions of 
@@ -163,23 +164,23 @@ community and its annual conference SciPy (Shen, 2014)
       IPython notebooks have become increasingly popular with researchers and 
 developers in just a few years. Many presentations and papers at conferences (not just at 
 SciPy) use IPython notebooks as demonstrated by the IPython project's "gallery of 
-interesting notebooks" (IPython, 2014a) and some science weblog sites are published 
-using notebooks including Damian Avila's site http://www.damian.oquanta.info which 
-has many useful tips for using and presenting with notebooks (Avila, 2014). 
-      More ambitiously some teams are using notebooks completely for their 
-publications. For example, the newest IPython book by Cyrille Rossant IPython 
-Interactive Computing and Visualization Cookbook was composed in notebooks and then 
-processed for electronic and print publication as explained by the author in the Preface 
-(Rossant, 2014).
+interesting notebooks" (IPython, 2014a). Some science weblog sites are published using 
+notebooks including Damian Avila's site http://www.damian.oquanta.info which has 
+many useful tips for using and presenting with notebooks (Avila, 2014). 
+      More ambitiously, some teams are using notebooks completely for their 
+publications. For example, the newest IPython book by Cyrille Rossant, IPython 
+Interactive Computing and Visualization Cookbook, was composed in notebooks and 
+then processed for electronic and print publication as explained by the author in the 
+Preface (Rossant, 2014).
 2.1.2.	Notebook Architecture
-      IPython is written in Python but with versions 2 and 3 has included more support 
-for using other languages. Notebooks have always supported use of essentially any 
-accessible tool though shebang, line, and cell magics, and IPython 3.x can actually run 
-kernels not just in Python (2 or 3) but also in other languages such as R and Julia. In fact, 
-the technical and social support for using other scientific and statistical analysis 
-languages is so strong within the IPython project and community that they have 
-announced and begun an ambitious plan to spin off the notebook components into their 
-own project, Jupyter (Perez, 2014).
+      IPython is written in Python, but with versions 2 and 3 it has included more 
+support for using other languages. Notebooks have always supported use of essentially 
+any accessible tool though shebang, line, and cell magics, and IPython 3 can run kernels 
+in Python (2 or 3) and in other languages including R and Julia. In fact, the technical and 
+social support for using other scientific and statistical analysis languages is so strong 
+within the IPython project and community that they have announced and begun an 
+ambitious plan to spin off the notebook components into their own project, Jupyter 
+(Perez, 2014).
       IPython notebooks are comprised of meta-data and cells. A single notebook can 
 include cells input as code, Markdown , or  headers, and the  output in text, graphics or 
 other formats (IPython, 2014g). Code cells feature syntax highlighting and tab auto-
@@ -194,7 +195,7 @@ are text encoded serialized objects in the popular JavaScript Object Notation (J
 format. (IPython, 2014c) Although the internal format of the notebook is not guaranteed 
 to be stable between releases, the JSON format allows for manual inspection and 
 troubleshooting of notebook contents and various useful programmatic manipulations. 
-For example, notebooks files check in easily to version control systems such as Git and 
+For example, notebooks files check in easily to version control systems, such as Git and 
 Fossil and can be processed into other formats directly if more customization or 
 automation is desired than is provided by the notebook application (Rossant, 2014). 
 Robust utilities for some of these transforms are included in IPython in the nbconvert 
@@ -204,21 +205,21 @@ package.
       The structure of the IPython notebook lends itself not only to ease of use for 
 programming and analysis but also includes robust support for documentation, reports, 
 and even presentation. The cells of a notebook are configurable to different modes for 
-code, rich text, or headers. Switch the mode of a cell with the menus or keyboard 
+code, rich text, or headers. Cell modes are switchable with the menus or keyboard 
 shortcuts to code, define multiple levels of headings, or to input full Markdown 
 structured text which will display as styled rich text when the cell is executed.
-      To share progress you can send an IPython notebook to colleagues as a file 
-attachment or check it in to version control. Rather than sharing all of your work by 
-sending the notebook you can process out an HTML rendering of your current notebook 
-including input and output cells using the print preview feature (in the File menu). This 
+      To share progress IPython notebooks can be sent to colleagues as a file 
+attachment or checked into version control. Rather than sharing all work by sending the 
+notebook an HTML rendering of the current notebook including input and output cells 
+can be created and excerpted using the print preview feature (in the File menu). This 
 conversion can also be done offline with nbconvert. Rendered notebook content can be 
 shared using the system clipboard and generally pastes nicely into office productivity and 
 messaging applications with formatting intact. 
-      For presenting your findings the notebook software natively supports slide shows. 
+      For presenting findings the notebook software natively supports slide shows. 
 Cells in IPython 2 and later can be marked as different levels of slide content, or to be 
-skipped over in your presentation. Once slides are selected nbconvert can process out 
-your notebook into a slides-only document in HTML or PDF or run the slideshow live in 
-a browser using the Reveal.js framework (Hattab, 2014).
+skipped over in a presentation. Once slides are selected nbconvert can write out a 
+notebook into a slides-only document in HTML or PDF or run the slideshow live in a 
+browser using the Reveal.js framework (Hattab, 2014).
        
        Fig 4: start Reveal.js slideshow with nbconvert
       Hannes Bretschneider, a PhD Student in Computer Science at the University of 
@@ -524,12 +525,15 @@ http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261
 Workbench project (2014). Workbench: A scalable python framework for security 
 research and development teams [Article]. Retrieved from 
 http://workbench.readthedocs.org/en/latest/
+
 DFIR notebooks - GCIH Gold
 2
 
+
 Ben S. Knowles, adric@adric.net		
 
-[Draft Feb 2015]
+
+[March 2015]
 
 
 
